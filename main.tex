@@ -1,0 +1,258 @@
+% =====================================================================
+%  Plantilla de Trabajo Fin de Grado / Máster
+%  Proporcionada por Diverso Lab (Universidad de Sevilla).
+%  Licencia: Creative Commons Attribution 4.0 International (CC BY 4.0).
+%  Eres libre de copiar, modificar y redistribuir esta plantilla,
+%  incluso con fines comerciales, siempre que se mantenga la atribución
+%  a Diverso Lab. Texto completo de la licencia en el archivo LICENSE
+%  o en https://creativecommons.org/licenses/by/4.0/
+% =====================================================================
+\documentclass[12pt, a4paper, oneside]{report}
+\raggedbottom
+
+% --- Codificación y lengua ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% --- Tipografía ---
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Geometría de página ---
+\usepackage[
+  top=2.5cm, bottom=2.5cm,
+  left=3cm, right=3cm
+]{geometry}
+
+% --- Interlineado ---
+\usepackage{setspace}
+\onehalfspacing{}
+
+% --- Párrafos ---
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+
+% --- Estilo de capítulos ---
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\Large\scshape}
+  {\thechapter}{1em}{}
+  [\vspace{0.5ex}\titlerule]
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+% Secciones
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+
+% --- Encabezados y pies ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15.5pt}
+
+% --- Gráficos (logo de la universidad en portada) ---
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{figures/img/}}
+
+% --- Colores ---
+\usepackage{xcolor}
+\definecolor{codegray}{rgb}{0.95,0.95,0.95}
+\definecolor{linkblue}{rgb}{0.1,0.2,0.6}
+\definecolor{placeholder}{rgb}{0.45,0.45,0.45}
+
+% --- Código fuente ---
+\usepackage{listings}
+\usepackage{fvextra}
+\lstset{
+  backgroundcolor=\color{codegray},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red!60!black},
+  tabsize=4,
+  captionpos=b,
+  showstringspaces=false
+}
+
+% --- Tablas ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{seqsplit}
+\usepackage{caption}
+% Captions siempre por debajo (tablas, figuras, listings, etc.)
+\captionsetup{position=below,justification=centering,singlelinecheck=false}
+\captionsetup[table]{position=below}
+\captionsetup[figure]{position=below}
+\setlength{\tabcolsep}{2pt}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\makeatletter
+\patchcmd\LT@output
+  {\unvbox\z@\copy\LT@foot\vss}
+  {\unvbox\z@\copy\LT@foot\vskip 0pt plus \maxdimen minus \normalbaselineskip}
+  {}{}
+\patchcmd\LT@output
+  {\unvbox\@cclv\copy\LT@foot\vss}
+  {\unvbox\@cclv\copy\LT@foot\vskip 0pt plus \maxdimen minus \normalbaselineskip}
+  {}{}
+\makeatother
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{%
+  breaklines=true,breakanywhere=true,%
+  numbers=left,numbersep=6pt,stepnumber=1,%
+  frame=single,framesep=4pt,fontsize=\small,xleftmargin=12pt%
+}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+
+% --- Matemáticas ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Bibliografía ---
+% La plantilla deja la bibliografía configurada y enlazada, pero sin entradas.
+% Para añadir referencias, edita bibliography.bib y ejecuta biber/biblatex.
+\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex}
+\addbibresource{bibliography.bib}
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\renewcommand{\mkbibsuperscript}[1]{\textsuperscript{[#1]}}
+
+% --- Hipervínculos ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  pdftitle={Plantilla TFG},
+  pdfauthor={Nombre del Autor},
+  pdfsubject={Trabajo de Fin de Grado}
+]{hyperref}
+\usepackage{xurl}
+
+% --- Otros ---
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+
+% --- Modo borrador / final ---
+% Cambia \drafttrue por \draftfalse antes de la entrega final
+% para ocultar todos los placeholders \ph{...}.
+\newif\ifdraft
+\drafttrue
+
+% --- Comando de placeholder ---
+% \ph{...} resalta texto que debe ser rellenado por el autor.
+% En modo final (\draftfalse) el contenido se elimina por completo.
+\ifdraft
+  \newcommand{\ph}[1]{\textcolor{placeholder}{\textit{[#1]}}}
+\else
+  \newcommand{\ph}[1]{}
+\fi
+
+% --- Profundidad del índice  ---
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+% ---
+\begin{document}
+
+% --- Portada ---
+\pagestyle{empty}
+\hypersetup{pageanchor=false}
+\include{sections/00_cover}
+\clearpage
+\hypersetup{pageanchor=true}
+
+% --- Preliminares---
+\pagestyle{fancy}
+\pagenumbering{roman}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\include{sections/00_declaracion}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\include{sections/00_agradecimientos}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\include{sections/00_resumen}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% --- Índice general ---
+\tableofcontents
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% --- Índice de tablas ---
+\listoftables
+\addcontentsline{toc}{chapter}{Índice de tablas}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% --- Índice de figuras ---
+\listoffigures
+\addcontentsline{toc}{chapter}{Índice de figuras}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% --- Lista de acrónimos ---
+\include{sections/00_acronimos}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% --- Cuerpo ---
+\pagenumbering{arabic}
+\include{sections/01_introducción}
+\include{sections/02_estado_del_arte}
+\include{sections/03_planificación}
+\include{sections/04_requisitos}
+\include{sections/05_diseño}
+\include{sections/06_implementación}
+\include{sections/07_pruebas}
+\include{sections/08_conclusiones}
+
+% --- Bibliografía (vacía pero enlazada). Añade entradas en bibliography.bib. ---
+\printbibliography[heading=bibintoc, title={Bibliografía}]
+
+% --- Apéndices ---
+% Duplica el archivo A_apendice.tex y añade aquí el correspondiente
+% \include si necesitas más apéndices.
+\appendix
+\include{sections/A_apendice}
+\include{sections/B_manual_instalacion}
+\include{sections/C_manual_usuario}
+
+\end{document}

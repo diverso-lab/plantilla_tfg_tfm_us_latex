@@ -1,0 +1,24 @@
+# --- LaTeX build artifacts ---
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bcf
+*.run.xml
+*.bbl
+*.blg
+*.bbl-SAVE-ERROR
+*-blx.bib
+
+# --- Editor / OS ---
+.DS_Store
+.vscode/
+.claude/
+
+# --- Compiled PDF (descomenta si no quieres versionar el PDF) ---
+# main.pdf

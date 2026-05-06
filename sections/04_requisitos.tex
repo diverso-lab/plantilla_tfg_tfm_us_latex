@@ -1,0 +1,330 @@
+\chapter{Análisis de requisitos}
+\label{chap:requisitos}
+
+\ph{Este capítulo describe \textbf{qué} debe hacer el sistema, sin entrar todavía en cómo
+lo hace. Es la base contractual del TFG: si un requisito no aparece aquí,
+no debería darse por hecho que el sistema lo cumple.}
+
+\section{Descripción del sistema}
+\label{sec:descripcion_sistema}
+
+\ph{Visión general del sistema en una página: qué es, qué resuelve y para quién.}
+
+\ph{Cubre:}
+\begin{itemize}
+  \item \ph{Tipo de sistema (aplicación web, CLI, librería, servicio\dots).}
+  \item \ph{Qué entradas acepta y qué salidas produce.}
+  \item \ph{Subsistemas o módulos principales en los que se divide.}
+  \item \ph{Actores que interactúan con él (anónimo, autenticado, administrador\dots).}
+\end{itemize}
+
+\ph{Ejemplo de subsistemas:}
+
+\begin{itemize}
+  \item \textbf{\ph{Subsistema 1}}: \ph{responsabilidad principal.}
+  \item \textbf{\ph{Subsistema 2}}: \ph{responsabilidad principal.}
+  \item \textbf{\ph{Subsistema 3}}: \ph{responsabilidad principal.}
+\end{itemize}
+
+\ph{Ejemplo de actores:}
+
+\begin{itemize}
+  \item \textbf{\ph{Actor 1}}: \ph{rol y nivel de acceso.}
+  \item \textbf{\ph{Actor 2}}: \ph{rol y nivel de acceso.}
+\end{itemize}
+
+\section{Requisitos de información}
+\label{sec:ri}
+
+\ph{Describe las entidades de información que el sistema gestiona, con sus
+atributos y restricciones (claves, unicidad, tipos, opcionalidad). Suele haber
+una tabla por entidad.}
+
+\subsection*{RI-01: \ph{Nombre de la entidad}}
+
+\ph{Breve descripción del propósito de la entidad.}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}P{3.5cm} P{3.cm} P{7.2cm}@{}}
+\toprule
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+\ph{atributo\_1} & \ph{Tipo} & \ph{Descripción y restricciones.} \\
+\ph{atributo\_2} & \ph{Tipo} & \ph{Descripción y restricciones.} \\
+\ph{atributo\_3} & \ph{Tipo} & \ph{Descripción y restricciones.} \\
+\bottomrule
+\end{tabular}
+\caption{Atributos del requisito de información RI-01.}
+\label{tab:ri01}
+\end{table}
+
+\subsection*{RI-02: \ph{Nombre de la entidad}}
+
+\ph{Breve descripción del propósito de la entidad.}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}P{3cm} P{2.8cm} P{7.2cm}@{}}
+\toprule
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+\ph{atributo\_1} & \ph{Tipo} & \ph{Descripción y restricciones.} \\
+\ph{atributo\_2} & \ph{Tipo} & \ph{Descripción y restricciones.} \\
+\bottomrule
+\end{tabular}
+\caption{Atributos del requisito de información RI-02.}
+\label{tab:ri02}
+\end{table}
+
+\section{Requisitos funcionales}
+\label{sec:rf}
+
+\ph{Lista las capacidades concretas que el sistema debe ofrecer, agrupadas por
+bloques temáticos (gestión de usuarios, lógica de negocio principal, exploración\dots).
+Cada requisito tiene un identificador único, un nombre, una descripción
+y una prioridad (Alta/Media/Baja).}
+
+\begin{longtable}{P{1.7cm} P{3.6cm} P{7.2cm} P{1.3cm}}
+\toprule
+\textbf{ID} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prior.} \\
+\midrule
+\endhead
+RF-01 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Alta}  \\[0.4em]
+RF-02 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Alta}  \\[0.4em]
+RF-03 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Media} \\[0.4em]
+\midrule
+RF-04 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Alta}  \\[0.4em]
+RF-05 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Alta}  \\[0.4em]
+\midrule
+RF-06 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \ph{Media} \\
+\bottomrule
+\caption{Requisitos funcionales del sistema.}
+\label{tab:rf}
+\end{longtable}
+
+\section{Requisitos no funcionales}
+\label{sec:rnf}
+
+\ph{Atributos transversales del sistema: seguridad, rendimiento, mantenibilidad,
+calidad de código, despliegue, estándares\dots Son tan vinculantes como los
+funcionales y deben poder verificarse.}
+
+\begin{longtable}{P{1.7cm} P{3.6cm} P{7.2cm} P{1.3cm}}
+\toprule
+\textbf{ID} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prior.} \\
+\midrule
+\endhead
+RNF-01 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
+RNF-02 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
+RNF-03 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Media} \\[0.4em]
+\midrule
+RNF-04 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
+RNF-05 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Media} \\
+\bottomrule
+\caption{Requisitos no funcionales del sistema.}
+\label{tab:rnf}
+\end{longtable}
+
+\section{Reglas de negocio}
+\label{sec:reglas_negocio}
+
+\ph{Las reglas de negocio (RN) son afirmaciones sobre cómo se comporta el
+dominio que el sistema debe respetar, independientemente de la tecnología o
+de la interfaz. No son requisitos funcionales (qué hace el sistema) ni
+requisitos no funcionales (atributos transversales): son restricciones
+lógicas del problema. Son las que se rompen últimas si cambian: no porque
+hayamos refactorizado, sino porque el negocio ha cambiado.}
+
+\begin{longtable}{P{1.7cm} P{4cm} P{8.8cm}}
+\toprule
+\textbf{ID} & \textbf{Nombre} & \textbf{Descripción} \\
+\midrule
+\endhead
+RN-01 & \ph{Nombre de la regla} & \ph{Enunciado preciso de la regla y, si
+   procede, la condición que la activa o la fuente que la justifica
+   (normativa, decisión de producto, restricción del dominio).} \\[0.4em]
+RN-02 & \ph{Nombre de la regla} & \ph{Enunciado preciso.} \\[0.4em]
+RN-03 & \ph{Nombre de la regla} & \ph{Enunciado preciso.} \\
+\bottomrule
+\caption{Reglas de negocio del dominio.}
+\label{tab:rn}
+\end{longtable}
+
+\section{Restricciones del proyecto}
+\label{sec:restricciones}
+
+\ph{Limitaciones externas que acotan el espacio de soluciones del proyecto.
+A diferencia de los RNF, no son atributos del sistema construido sino
+condicionantes del proceso de construcción.}
+
+\begin{longtable}{P{1.7cm} P{3.5cm} P{9.3cm}}
+\toprule
+\textbf{ID} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+\endhead
+RES-01 & \ph{Tecnológica} &
+   \ph{p.\,ej.\ uso obligatorio de un lenguaje, framework o plataforma
+   concretos.} \\[0.4em]
+RES-02 & \ph{Legal / regulatoria} &
+   \ph{p.\,ej.\ cumplimiento de RGPD, normativa sectorial, accesibilidad WCAG.} \\[0.4em]
+RES-03 & \ph{Organizativa} &
+   \ph{p.\,ej.\ uso de la infraestructura del grupo de investigación,
+   integración con sistemas internos existentes.} \\[0.4em]
+RES-04 & \ph{Económica / temporal} &
+   \ph{p.\,ej.\ presupuesto cero, plazo fijado por el calendario académico.} \\
+\bottomrule
+\caption{Restricciones del proyecto.}
+\label{tab:res}
+\end{longtable}
+
+\section{Casos de uso}
+\label{sec:casos_uso}
+
+\subsection{Diagrama general de casos de uso}
+\label{subsec:cu_diagrama}
+
+\ph{Resumen narrativo del diagrama: qué actores hay, qué casos de uso conectan
+con cada actor y qué relaciones \texttt{include} o \texttt{extend} existen
+entre casos de uso.}
+
+\ph{(Espacio reservado para el diagrama de casos de uso del sistema, no incluido
+en esta plantilla.)}
+
+\subsection{Especificación de casos de uso principales}
+\label{subsec:cu_especificacion}
+
+\ph{Especifica con detalle los casos de uso más relevantes. Cada uno usa una ficha
+con los campos: actores, descripción, precondiciones, flujo principal,
+flujos alternativos y postcondiciones. Repite la ficha tantas veces como casos
+de uso quieras especificar.}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\bfseries\RaggedRight\arraybackslash}p{4cm} P{10cm}@{}}
+\toprule
+\multicolumn{2}{l}{\textbf{CU-01 --- \ph{Nombre del caso de uso}}} \\
+\midrule
+Actores        & \ph{Actor/es implicado/s.} \\
+Descripción    & \ph{Resumen del objetivo del caso de uso.} \\
+Precondiciones & \ph{Estado previo necesario para iniciar el caso de uso.} \\
+Flujo principal &
+  \ph{1. Paso 1.\newline
+       2. Paso 2.\newline
+       3. Paso 3.\newline
+       4. Paso 4.\newline
+       5. Paso 5.} \\
+Flujo alternativo &
+  \ph{Xa. Variante o error y respuesta del sistema.} \\
+Postcondiciones & \ph{Estado del sistema tras la ejecución correcta.} \\
+\bottomrule
+\end{tabular}
+\caption{Especificación del caso de uso CU-01.}
+\label{tab:uc01}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\bfseries\RaggedRight\arraybackslash}p{4cm} P{10cm}@{}}
+\toprule
+\multicolumn{2}{l}{\textbf{CU-02 --- \ph{Nombre del caso de uso}}} \\
+\midrule
+Actores        & \ph{Actor/es implicado/s.} \\
+Descripción    & \ph{Resumen del objetivo del caso de uso.} \\
+Precondiciones & \ph{Estado previo necesario.} \\
+Flujo principal &
+  \ph{1. Paso 1.\newline
+       2. Paso 2.\newline
+       3. Paso 3.} \\
+Flujo alternativo & \ph{Xa. Variante o error.} \\
+Postcondiciones & \ph{Estado tras la ejecución.} \\
+\bottomrule
+\end{tabular}
+\caption{Especificación del caso de uso CU-02.}
+\label{tab:uc02}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\bfseries\RaggedRight\arraybackslash}p{4cm} P{10cm}@{}}
+\toprule
+\multicolumn{2}{l}{\textbf{CU-03 --- \ph{Nombre del caso de uso}}} \\
+\midrule
+Actores        & \ph{Actor/es.} \\
+Descripción    & \ph{Resumen.} \\
+Precondiciones & \ph{Estado previo.} \\
+Flujo principal &
+  \ph{1. Paso 1.\newline
+       2. Paso 2.\newline
+       3. Paso 3.\newline
+       4. Paso 4.} \\
+Flujo alternativo & \ph{Xa. Variante.} \\
+Postcondiciones & \ph{Estado tras la ejecución.} \\
+\bottomrule
+\end{tabular}
+\caption{Especificación del caso de uso CU-03.}
+\label{tab:uc03}
+\end{table}
+
+\section{Matriz de trazabilidad}
+\label{sec:trazabilidad}
+
+\ph{La matriz de trazabilidad cruza los requisitos funcionales con los
+casos de uso que los implementan y, opcionalmente, con las pruebas que los
+verifican. Demuestra que ningún requisito queda huérfano y que cada caso
+de uso responde a uno o más requisitos identificados.}
+
+\ph{Marca con \texttimes\ la celda en la que el caso de uso (o la prueba)
+cubre el requisito de la fila. Una fila vacía es un requisito sin cobertura;
+una columna vacía es un caso de uso sin requisito que lo justifique.
+Ambos son señales de alerta.}
+
+\subsection{Requisitos funcionales \texorpdfstring{$\leftrightarrow$}{<->} casos de uso}
+\label{subsec:trazabilidad_rf_cu}
+
+\begin{longtable}{P{1.7cm} *{6}{P{1.4cm}}}
+\toprule
+\textbf{} & \textbf{CU-01} & \textbf{CU-02} & \textbf{CU-03} & \textbf{CU-04} & \textbf{CU-05} & \textbf{CU-06} \\
+\midrule
+\endhead
+RF-01 & \ph{$\times$} &               &               &               &               &               \\
+RF-02 &               & \ph{$\times$} &               &               &               &               \\
+RF-03 &               &               & \ph{$\times$} &               &               &               \\
+RF-04 &               &               &               & \ph{$\times$} &               &               \\
+RF-05 &               &               &               &               & \ph{$\times$} &               \\
+RF-06 &               &               &               &               &               & \ph{$\times$} \\
+\bottomrule
+\caption{Matriz de trazabilidad entre requisitos funcionales y casos de uso.}
+\label{tab:trazabilidad_rf_cu}
+\end{longtable}
+
+\subsection{Requisitos \texorpdfstring{$\leftrightarrow$}{<->} pruebas}
+\label{subsec:trazabilidad_rf_pruebas}
+
+\ph{Cruce de los requisitos con la suite de pruebas (Capítulo~\ref{chap:pruebas}).
+Cada requisito debería tener al menos una prueba que lo cubra. Indica el
+identificador o nombre del test correspondiente.}
+
+\begin{longtable}{P{2cm} P{4cm} P{8.5cm}}
+\toprule
+\textbf{Requisito} & \textbf{Tipo de prueba} & \textbf{Test / archivo} \\
+\midrule
+\endhead
+RF-01 & \ph{Unitaria / Integración / E2E} & \ph{\texttt{test\_xxx::test\_caso}} \\[0.3em]
+RF-02 & \ph{Unitaria / Integración / E2E} & \ph{\texttt{test\_xxx::test\_caso}} \\[0.3em]
+RF-03 & \ph{Unitaria / Integración / E2E} & \ph{\texttt{test\_xxx::test\_caso}} \\[0.3em]
+\midrule
+RNF-01 & \ph{Tipo} & \ph{Test / verificación.} \\[0.3em]
+RNF-02 & \ph{Tipo} & \ph{Test / verificación.} \\
+\bottomrule
+\caption{Matriz de trazabilidad entre requisitos y pruebas.}
+\label{tab:trazabilidad_rf_pruebas}
+\end{longtable}

@@ -1,0 +1,222 @@
+\chapter{Implementación}
+\label{chap:implementacion}
+
+\ph{Este capítulo describe \textbf{cómo} se ha materializado el diseño en código:
+qué tecnologías se han usado, qué módulos se han implementado y qué decisiones
+concretas se han tomado en cada uno.}
+
+\section{Análisis de tecnologías}
+\label{sec:analisis_tecnologias}
+
+\ph{Justifica la elección de las tecnologías principales del proyecto.
+Si has comparado varias opciones, hazlo explícito (es más convincente que
+afirmar la elegida sin alternativas).}
+
+\subsection*{\ph{Necesidad técnica 1}}
+
+\ph{Plantea el problema concreto que motivó la elección
+(p.\,ej., procesar archivos en formato X, validar reglas, automatizar Y\dots)
+y qué características debe tener la tecnología elegida.}
+
+\subsection*{\ph{Necesidad técnica 2}}
+
+\ph{Otra necesidad que orienta una decisión tecnológica.}
+
+\subsection*{\ph{Necesidad técnica 3}}
+
+\ph{Otra necesidad que orienta una decisión tecnológica
+(p.\,ej., experiencia de usuario, despliegue, rendimiento, mantenibilidad).}
+
+\subsubsection*{Comparativa de tecnologías del backend}
+
+\begin{itemize}
+  \item \textbf{\ph{Tecnología A}}: \ph{descripción y ventajas/inconvenientes.}
+  \item \textbf{\ph{Tecnología B}}: \ph{descripción y ventajas/inconvenientes.}
+  \item \textbf{\ph{Tecnología C}}: \ph{descripción y ventajas/inconvenientes.}
+\end{itemize}
+
+\subsubsection*{Comparativa de tecnologías del frontend}
+
+\begin{itemize}
+  \item \textbf{\ph{Tecnología A}}: \ph{descripción y ventajas/inconvenientes.}
+  \item \textbf{\ph{Tecnología B}}: \ph{descripción y ventajas/inconvenientes.}
+  \item \textbf{\ph{Tecnología C}}: \ph{descripción y ventajas/inconvenientes.}
+\end{itemize}
+
+\subsubsection*{Análisis de la base de datos}
+
+\begin{enumerate}
+  \item \textbf{\ph{Opción A}}: \ph{justificación.}
+  \item \textbf{\ph{Opción B}}: \ph{justificación.}
+\end{enumerate}
+
+\subsubsection*{Plataformas de despliegue}
+
+\begin{itemize}
+  \item \textbf{\ph{Plataforma A}}: \ph{descripción y casuística.}
+  \item \textbf{\ph{Plataforma B}}: \ph{descripción y casuística.}
+  \item \textbf{\ph{Plataforma C}}: \ph{descripción y casuística.}
+\end{itemize}
+
+\subsubsection*{Tecnologías finales seleccionadas}
+
+\begin{itemize}
+  \item \textbf{Desarrollo}: \ph{tecnologías elegidas para backend / frontend.}
+  \item \textbf{Base de datos}: \ph{motor elegido.}
+  \item \textbf{Contenedor}: \ph{tecnología de contenerización (Docker, Podman\dots).}
+  \item \textbf{Despliegue}: \ph{plataforma final.}
+\end{itemize}
+
+\section{Tecnologías utilizadas}
+\label{sec:tecnologias}
+
+\ph{Tras la justificación, describe brevemente cómo se usa cada tecnología
+en el proyecto. Una tecnología por párrafo, indicando módulo o archivo
+en que aparece.}
+
+\ph{Sugerencia de bloques:}
+
+\begin{itemize}
+  \item \ph{Backend (framework, gestión de dependencias, configuración).}
+  \item \ph{Autenticación (estrategia, almacenamiento de credenciales,
+        gestión de sesión o token).}
+  \item \ph{Persistencia (ORM, motor, migraciones).}
+  \item \ph{Lógica de dominio (módulos en los que se divide).}
+  \item \ph{Generación de artefactos / motor de plantillas (si aplica).}
+  \item \ph{Capa de presentación (HTML/CSS/JS o framework).}
+  \item \ph{Infraestructura de desarrollo (Docker, Compose, Make\dots).}
+  \item \ph{Suite de pruebas (framework, marcadores, comandos).}
+  \item \ph{Automatización CI/CD (proveedor y workflows principales).}
+\end{itemize}
+
+\section{\ph{Módulo de validación / lógica principal}}
+\label{sec:modulo_principal}
+
+\ph{Describe el módulo central de la lógica de negocio. Suele ser el que aplica
+las reglas del dominio (validador, motor de reglas, planificador\dots).}
+
+\ph{Cubre:}
+\begin{itemize}
+  \item \ph{Función o clase principal y su contrato (entrada/salida).}
+  \item \ph{Estructura del resultado (campos, tipos, semántica).}
+  \item \ph{Cómo lo consumen otros módulos (API, generadores\dots).}
+\end{itemize}
+
+\subsection{\ph{Validación sintáctica / comprobaciones básicas}}
+\label{subsec:validacion_sintactica}
+
+\ph{Comprobaciones de presencia de campos, pertenencia a conjuntos enumerados,
+tipos de datos\dots En definitiva, lo que se puede verificar sin entrar en
+la semántica del dominio.}
+
+\subsection{\ph{Validación semántica / restricciones de dominio}}
+\label{subsec:validacion_semantica}
+
+\ph{Reglas de dominio que combinan varios campos (rangos, dependencias,
+fórmulas, exclusiones). Documenta cada regla con su descripción y, si aplica,
+su expresión matemática.}
+
+\[
+\text{regla}_1: \quad f(x_1, x_2) \geq c_1
+\]
+
+\section{\ph{Módulo de generación de artefactos}}
+\label{sec:generador}
+
+\ph{Describe el componente que produce el artefacto final
+(documento JSON, código fuente, fichero CAD, informe PDF\dots) a partir de
+la representación intermedia.}
+
+\subsection{\ph{Cálculos o transformaciones específicas}}
+\label{subsec:calculos}
+
+\ph{Si la generación implica cálculos no triviales (geometría, fórmulas
+analíticas, transformaciones de coordenadas\dots), descríbelos con sus
+fórmulas o pseudocódigo.}
+
+\subsection{\ph{Síntesis del artefacto final}}
+\label{subsec:sintesis}
+
+\ph{Describe el proceso de generación final paso a paso, separando
+preparación de datos, renderizado de plantillas y operaciones específicas
+de la herramienta destino.}
+
+\subsection{\ph{Operaciones complementarias}}
+\label{subsec:operaciones}
+
+\ph{Si tras la generación hay operaciones complementarias
+(ensamblado, postprocesado, decoración con metadatos\dots), descríbelas aquí.}
+
+\section{API REST / capa de servicios}
+\label{sec:api}
+
+\ph{Describe la API expuesta por el sistema: agrupa los \emph{endpoints} por
+bloque temático y, para cada endpoint, indica método, ruta, autenticación
+requerida y semántica básica.}
+
+\subsection{Endpoints implementados}
+\label{subsec:endpoints}
+
+\ph{Bloques sugeridos:}
+
+\ph{Páginas / vistas:}
+\begin{itemize}
+  \item \ph{\texttt{GET /ruta\_publica}}: \ph{descripción.}
+  \item \ph{\texttt{GET /ruta\_protegida}}: \ph{descripción.}
+\end{itemize}
+
+\ph{Endpoints de lógica principal:}
+\begin{itemize}
+  \item \ph{\texttt{POST /api/\dots}}: \ph{descripción y respuestas (200, 4xx, 5xx).}
+  \item \ph{\texttt{GET  /api/\dots}}: \ph{descripción.}
+\end{itemize}
+
+\ph{Endpoints de autenticación:}
+\begin{itemize}
+  \item \ph{\texttt{POST /api/auth/register}}: \ph{descripción.}
+  \item \ph{\texttt{POST /api/auth/login}}: \ph{descripción.}
+  \item \ph{\texttt{POST /api/auth/logout}}: \ph{descripción.}
+\end{itemize}
+
+\ph{Endpoints de gestión de recursos del usuario:}
+\begin{itemize}
+  \item \ph{\texttt{POST /api/\dots}}: \ph{descripción.}
+  \item \ph{\texttt{GET  /api/\dots}}: \ph{descripción.}
+\end{itemize}
+
+\subsection{Persistencia y recuperación}
+\label{subsec:persistencia}
+
+\ph{Explica cómo se guardan y recuperan los recursos principales: qué se
+persiste, qué validaciones se aplican antes de persistir y cómo se garantiza
+el aislamiento entre usuarios.}
+
+\subsection{\ph{Descarga / exportación de artefactos}}
+\label{subsec:descarga}
+
+\ph{Si el sistema permite descargar artefactos generados, describe los
+escenarios (descarga inmediata tras generación, descarga desde el historial
+de configuraciones guardadas\dots) y la estrategia de regeneración bajo demanda
+frente a almacenamiento permanente.}
+
+\section{Integración continua}
+\label{sec:ci}
+
+\ph{Describe la automatización de calidad y despliegue del proyecto.
+Si usas un proveedor concreto (GitHub Actions, GitLab CI, Jenkins\dots),
+nómbralo y comenta los workflows configurados.}
+
+\ph{Workflows típicos:}
+
+\begin{itemize}
+  \item \textbf{\ph{Validación de commits}}: \ph{convención de mensajes, autores\dots}
+  \item \textbf{\ph{Linting / análisis estático}}: \ph{herramienta y comandos.}
+  \item \textbf{\ph{Pruebas}}: \ph{ejecución de la suite en cada \textit{push} y \textit{PR}.}
+  \item \textbf{\ph{Cobertura}}: \ph{umbral mínimo y políticas de fallo.}
+  \item \textbf{\ph{Release}}: \ph{condiciones para crear releases.}
+  \item \textbf{\ph{Despliegue}}: \ph{construcción y publicación de imagen / artefacto.}
+\end{itemize}
+
+\ph{Si dispones de comandos locales equivalentes a los workflows remotos
+(Make, scripts\dots), enuméralos para que el lector pueda reproducir
+las comprobaciones.}

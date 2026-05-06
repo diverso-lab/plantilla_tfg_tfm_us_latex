@@ -1,0 +1,253 @@
+\chapter{Diseño de la solución}
+\label{chap:diseno}
+
+\ph{Este capítulo describe \textbf{cómo} se ha diseñado el sistema para cumplir
+los requisitos del capítulo anterior. Se centra en la arquitectura, los modelos
+y los flujos de datos, sin entrar todavía en el código concreto (eso es la
+implementación).}
+
+\section{\ph{Modelo conceptual del dominio}}
+\label{sec:modelo_dominio}
+
+\ph{Si el TFG se apoya en un modelo formal del dominio (modelo de features,
+ontología, modelo de datos, gramática, modelo matemático\dots), descríbelo aquí.
+Si no aplica, sustituye esta sección por la que mejor encaje con el trabajo.}
+
+\ph{Cubre:}
+\begin{itemize}
+  \item \ph{Para qué sirve el modelo y qué representa.}
+  \item \ph{Dónde se almacena (archivo, formato, lenguaje).}
+  \item \ph{Cómo se relaciona con el resto del sistema (validación, generación, persistencia).}
+\end{itemize}
+
+\subsection{\ph{Estructura del modelo}}
+\label{subsec:estructura_modelo}
+
+\ph{Describe la jerarquía o estructura principal del modelo. Si hay un árbol,
+descríbelo de raíz a hojas. Si hay entidades, descríbelas con sus relaciones.}
+
+\subsection{\ph{Restricciones del dominio}}
+\label{subsec:constraints_dominio}
+
+\ph{Restricciones que el modelo no captura por estructura y que se expresan
+como reglas adicionales (rangos, dependencias, exclusiones, fórmulas\dots).
+Justifica brevemente cada una desde el punto de vista del dominio.}
+
+\begin{itemize}
+  \item \textbf{\ph{Restricción 1}:} \ph{descripción y justificación.}
+  \item \textbf{\ph{Restricción 2}:} \ph{descripción y justificación.}
+  \item \textbf{\ph{Restricción 3}:} \ph{descripción y justificación.}
+\end{itemize}
+
+\subsection{\ph{Espacio de soluciones / configuraciones}}
+\label{subsec:espacio_soluciones}
+
+\ph{Si tiene sentido, calcula o estima el tamaño del espacio de soluciones
+válidas (combinatoria de opciones, rango continuo de parámetros, etc.).
+Es útil para ilustrar la magnitud del problema.}
+
+\section{Arquitectura del sistema}
+\label{sec:arquitectura}
+
+\subsection{Visión general}
+\label{subsec:arquitectura_general}
+
+\ph{Describe la arquitectura de alto nivel: tipo de aplicación
+(monolito, microservicios, librería, CLI\dots), patrón principal
+(capas, hexagonal, MVC\dots) y las tecnologías centrales.}
+
+\ph{Lista de capas habituales:}
+
+\begin{itemize}
+  \item \textbf{Capa de presentación}: \ph{interfaz visible al usuario.}
+  \item \textbf{Capa de API / controladores}: \ph{coordinación de peticiones y respuestas.}
+  \item \textbf{Capa de dominio / lógica}: \ph{reglas de negocio, validación, generación.}
+  \item \textbf{Capa de persistencia}: \ph{acceso a base de datos o almacenamiento.}
+  \item \textbf{Capa de infraestructura}: \ph{contenedores, despliegue, CI/CD.}
+\end{itemize}
+
+\ph{Si usas un modelo de documentación arquitectónica concreto (C4, 4+1, ATAM\dots),
+nómbralo aquí y comenta qué niveles incluyes.}
+
+\ph{(Espacio reservado para los diagramas de contexto y de contenedores,
+no incluidos en esta plantilla.)}
+
+\subsection{Diagrama de componentes}
+\label{subsec:diagrama_componentes}
+
+\ph{Describe cómo se distribuyen los módulos del sistema entre las capas
+y cómo se comunican entre sí. Indica responsabilidades por módulo.}
+
+\ph{(Espacio reservado para el diagrama de capas / componentes.)}
+
+\subsection{Diagrama de secuencia del flujo principal}
+\label{subsec:diagrama_secuencia}
+
+\ph{Enumera, paso a paso, el flujo principal del sistema (el caso de uso central).
+Esto orienta al lector antes de los detalles de implementación.}
+
+\begin{enumerate}
+  \item \ph{Paso 1.}
+  \item \ph{Paso 2.}
+  \item \ph{Paso 3.}
+  \item \ph{Paso 4.}
+  \item \ph{Paso 5.}
+  \item \ph{Paso 6.}
+\end{enumerate}
+
+\ph{Comenta también qué ocurre en caso de error (el flujo se interrumpe,
+se devuelve un código de error, se notifica al usuario\dots).}
+
+\section{Patrones de diseño aplicados}
+\label{sec:patrones}
+
+\ph{Enumera los patrones de diseño (creacionales, estructurales, de
+comportamiento o arquitectónicos) que se han aplicado en la solución.
+Para cada uno indica \emph{qué problema resuelve}, \emph{dónde se aplica}
+en el sistema y \emph{por qué} se eligió frente a alternativas.}
+
+\ph{Ejemplos habituales en TFGs de Ingeniería del Software:}
+
+\begin{itemize}
+  \item \textbf{\ph{Patrón 1 (p.\,ej.\ MVC, Repositorio, Singleton, Factory\dots)}:}
+        \ph{problema que resuelve, módulo o capa donde se aplica, alternativas
+        descartadas.}
+  \item \textbf{\ph{Patrón 2}:} \ph{descripción y justificación.}
+  \item \textbf{\ph{Patrón 3}:} \ph{descripción y justificación.}
+\end{itemize}
+
+\ph{Si la arquitectura sigue un patrón global (capas, hexagonal, MVC,
+microservicios\dots), descríbelo aquí o referencia la sección de arquitectura
+donde se haya tratado.}
+
+\section{Diseño de la interfaz de usuario}
+\label{sec:ui_ux}
+
+\ph{Si el sistema tiene interfaz gráfica (web, móvil, escritorio), dedica una
+sección al diseño de la experiencia de usuario. No basta con decir ``se ha
+hecho bonito''; conviene documentar las decisiones tomadas.}
+
+\subsection{Mapa de navegación}
+\label{subsec:mapa_navegacion}
+
+\ph{Diagrama o lista jerárquica de las pantallas/vistas del sistema y los
+caminos posibles entre ellas. Sirve para que el lector se haga una idea de la
+extensión funcional sin recorrerse el sistema en vivo.}
+
+\ph{Listado de vistas:}
+
+\begin{itemize}
+  \item \ph{Vista 1 — propósito y enlaces salientes.}
+  \item \ph{Vista 2 — propósito y enlaces salientes.}
+  \item \ph{Vista 3 — propósito y enlaces salientes.}
+\end{itemize}
+
+\subsection{Wireframes y mockups}
+\label{subsec:mockups}
+
+\ph{Bocetos de baja fidelidad (wireframes) o prototipos visuales (mockups)
+de las pantallas principales. Conviene incluir al menos las dos o tres más
+representativas: la pantalla principal, la pantalla del flujo principal y
+una pantalla de gestión/listado.}
+
+\ph{(Espacio reservado para los wireframes/mockups, no incluidos en esta plantilla.)}
+
+\subsection{Decisiones de diseño visual}
+\label{subsec:decisiones_visuales}
+
+\ph{Comenta brevemente las decisiones globales de la interfaz:}
+
+\begin{itemize}
+  \item \textbf{\ph{Paleta de colores}}: \ph{principales, secundarios,
+        accesibilidad de contraste.}
+  \item \textbf{\ph{Tipografía}}: \ph{familias usadas y por qué.}
+  \item \textbf{\ph{Sistema de diseño / framework CSS}}: \ph{si se ha usado uno
+        (Bootstrap, Tailwind, Material\dots) o se han creado componentes propios.}
+  \item \textbf{\ph{Responsive / accesibilidad}}: \ph{breakpoints, criterios de
+        accesibilidad seguidos (contraste, navegación por teclado, ARIA\dots).}
+\end{itemize}
+
+\section{Esquema de base de datos}
+\label{sec:esquema_db}
+
+\subsection{Modelo entidad-relación}
+\label{subsec:er}
+
+\ph{Describe las entidades persistidas, sus atributos y las relaciones entre
+ellas. Suele bastar con un par de tablas y una representación simbólica de
+las relaciones.}
+
+\ph{Por ejemplo, una relación de uno a muchos:}
+
+\[
+\texttt{entidad\_A} \;\; 1 \longrightarrow N \;\; \texttt{entidad\_B}
+\]
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Campo} & \textbf{Tipo de Dato} & \textbf{Restricciones} \\ \hline
+        \ph{campo\_1} & \ph{Tipo} & \ph{PK / NOT NULL / \dots} \\
+        \ph{campo\_2} & \ph{Tipo} & \ph{\dots} \\
+        \ph{campo\_3} & \ph{Tipo} & \ph{\dots} \\
+        \ph{campo\_4} & \ph{Tipo} & \ph{\dots} \\ \hline
+    \end{tabular}
+    \caption{Esquema de la tabla \ph{\texttt{nombre\_tabla\_1}}.}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Campo} & \textbf{Tipo de Dato} & \textbf{Restricciones} \\ \hline
+        \ph{campo\_1} & \ph{Tipo} & \ph{PK / FK / \dots} \\
+        \ph{campo\_2} & \ph{Tipo} & \ph{\dots} \\
+        \ph{campo\_3} & \ph{Tipo} & \ph{\dots} \\ \hline
+    \end{tabular}
+    \caption{Esquema de la tabla \ph{\texttt{nombre\_tabla\_2}}.}
+\end{table}
+
+\ph{Comenta cómo se garantiza el aislamiento entre usuarios (filtros por
+\texttt{user\_id}, comprobaciones de propiedad, etc.) si aplica.}
+
+\subsection{Migraciones / versionado del esquema}
+\label{subsec:migraciones}
+
+\ph{Si el esquema se versiona (Alembic, Flyway, Liquibase\dots), explica
+brevemente la herramienta usada, dónde se almacenan las migraciones y qué
+comandos se utilizan en desarrollo y en CI.}
+
+\section{Flujo de datos principal}
+\label{sec:flujo}
+
+\ph{Describe el flujo de transformación de datos desde la entrada del usuario
+hasta el artefacto final. Por ejemplo:
+\textbf{\ph{Entrada}} $\rightarrow$ \textbf{\ph{Representación intermedia}}
+$\rightarrow$ \textbf{\ph{Artefacto final}}.}
+
+\subsection{\ph{Estructura de la representación intermedia}}
+\label{subsec:representacion_intermedia}
+
+\ph{Si el sistema produce una representación intermedia
+(JSON canónico, IR, AST, fichero de configuración\dots), describe sus campos
+principales y referencia el apéndice donde se incluya un ejemplo completo.}
+
+\subsection{\ph{Mapeo entre niveles}}
+\label{subsec:mapeo}
+
+\ph{Si el flujo implica transformaciones explícitas (símbolos a valores
+numéricos, alias a constantes, claves a entidades\dots), describe los mapeos
+con ejemplos concretos.}
+
+\begin{itemize}
+  \item \ph{\texttt{símbolo\_a}} $\rightarrow$ \ph{\texttt{valor\_a}}
+  \item \ph{\texttt{símbolo\_b}} $\rightarrow$ \ph{\texttt{valor\_b}}
+\end{itemize}
+
+\subsection{\ph{Trazabilidad e identificadores}}
+\label{subsec:trazabilidad}
+
+\ph{Si el sistema necesita relacionar artefactos generados con su configuración
+de origen, explica el esquema de identificadores (UUID, hash, slug\dots)
+y dónde se persisten.}

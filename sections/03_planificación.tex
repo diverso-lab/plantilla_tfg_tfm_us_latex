@@ -1,0 +1,199 @@
+\chapter{Planificación del proyecto}
+\label{chap:planificacion}
+
+\ph{Este capítulo describe cómo se ha gestionado el proyecto: metodología de trabajo,
+fases, hitos, riesgos y presupuesto. Demuestra que el TFG no es solo un producto
+software, sino un proyecto planificado y controlado.}
+
+\section{Metodología de desarrollo}
+\label{sec:metodologia}
+
+\ph{Justifica la metodología (o metodologías) elegida(s) para el desarrollo y para
+la redacción de la memoria. Es habitual usar enfoques distintos para cada fase.}
+
+\ph{Puntos a cubrir:}
+\begin{itemize}
+  \item \ph{Metodología elegida (Waterfall, Scrum, Kanban, iterativa\dots) y por qué.}
+  \item \ph{Cómo se gestiona el control de versiones (Git, GitHub/GitLab\dots).}
+  \item \ph{Si se usan herramientas de seguimiento (issues, tableros, CI), nómbralas brevemente.}
+\end{itemize}
+
+\section{Fases e hitos}
+\label{sec:fases}
+
+\ph{Divide el proyecto en fases claras con un hito (entregable verificable) por fase.
+Es muy recomendable comparar la estimación inicial con las horas realmente invertidas,
+y comentar las desviaciones.}
+
+\ph{Tabla de fases del desarrollo: rellena las filas con tus propias fases.}
+
+\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+  \toprule
+  \textbf{\#} & \textbf{Fase} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \midrule
+  \endhead
+  1 & \ph{Fase 1} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 1.} \\[0.3em]
+  2 & \ph{Fase 2} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 2.} \\[0.3em]
+  3 & \ph{Fase 3} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 3.} \\[0.3em]
+  4 & \ph{Fase 4} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 4.} \\[0.3em]
+  \midrule
+  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  \bottomrule
+  \caption{Fases del proyecto e hitos asociados (estimadas vs.\ reales).}
+  \label{tab:fases-desarrollo}
+\end{longtable}
+
+\ph{Comenta la desviación: en qué fase se concentró, por qué se produjo y cómo se gestionó.}
+
+\ph{Tabla equivalente para la redacción de la memoria.}
+
+\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+  \toprule
+  \textbf{\#} & \textbf{Capítulo} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \midrule
+  \endhead
+  1 & Introducción              & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  2 & Estado del arte           & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  3 & Planificación             & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  4 & Análisis de requisitos    & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  5 & Diseño de la solución     & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  6 & Implementación            & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  7 & Pruebas y validación      & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
+  8 & Conclusiones              & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\
+  \midrule
+  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  \bottomrule
+  \caption{Fases de redacción de la memoria (estimadas vs.\ reales).}
+  \label{tab:fases-memoria}
+\end{longtable}
+
+\ph{Tabla de resumen agrupada (planificación + memoria + desarrollo + revisión).}
+
+\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+  \toprule
+  \textbf{\#} & \textbf{Fase} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \midrule
+  \endhead
+  1 & Planificación & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
+  2 & Memoria       & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
+  3 & Desarrollo    & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
+  4 & Revisión      & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
+  \midrule
+  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  \bottomrule
+  \caption{Resumen global del proyecto (estimadas vs.\ reales).}
+  \label{tab:fases-conjunta}
+\end{longtable}
+
+\ph{Cierra la sección con una valoración global de la desviación temporal.}
+
+\section{Gestión de riesgos}
+\label{sec:riesgos}
+
+\ph{Identifica los riesgos principales que podían comprometer el cumplimiento de los
+objetivos o de los plazos. Para cada uno indica la probabilidad estimada,
+el impacto y el plan de mitigación.}
+
+\begin{longtable}{P{4.5cm} P{2.2cm} P{2.2cm} P{5cm}}
+  \toprule
+  \textbf{Riesgo} & \textbf{Probabilidad} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \midrule
+  \endhead
+  \ph{Riesgo 1} & \ph{Alta} & \ph{Alto} & \ph{Plan de mitigación.} \\[0.3em]
+  \ph{Riesgo 2} & \ph{Media} & \ph{Medio} & \ph{Plan de mitigación.} \\[0.3em]
+  \ph{Riesgo 3} & \ph{Baja} & \ph{Alto} & \ph{Plan de mitigación.} \\[0.3em]
+  \ph{Riesgo 4} & \ph{Media} & \ph{Bajo} & \ph{Plan de mitigación.} \\
+  \bottomrule
+  \caption{Riesgos identificados y planes de mitigación.}
+  \label{tab:riesgos}
+\end{longtable}
+
+\section{Presupuesto}
+\label{sec:presupuesto}
+
+\ph{Presenta el presupuesto del proyecto. Una opción habitual es seguir el modelo
+TCO (\textit{Total Cost of Ownership}), separando costes de capital (CapEx) y costes
+operacionales (OpEx). Conviene incluir, junto al coste real (a menudo 0\,€ en contexto
+académico), el valor de mercado equivalente para una valoración realista.}
+
+\subsection*{CapEx --- Costes de capital}
+
+\ph{Inversiones en infraestructura física y licencias de uso prolongado.}
+
+\begin{longtable}{P{4cm} P{4cm} P{2.5cm} P{2.5cm}}
+  \toprule
+  \textbf{Recurso} & \textbf{Descripción} & \textbf{Coste real} & \textbf{Valor} \\
+  \midrule
+  \endhead
+  \ph{Recurso 1} & \ph{Descripción.} & \ph{0,00\,€} & \ph{X\,€/año} \\[0.3em]
+  \ph{Recurso 2} & \ph{Descripción.} & \ph{0,00\,€} & \ph{X\,€}     \\[0.3em]
+  \midrule
+  \textbf{Total CapEx} & & \textbf{\ph{0,00\,€}} & \textbf{\ph{X\,€}} \\
+  \bottomrule
+  \caption{Costes de capital (CapEx).}
+  \label{tab:capex}
+\end{longtable}
+
+\ph{Justifica brevemente cómo se ha estimado el valor de mercado de cada recurso
+(por ejemplo, tarifa pública de un proveedor cloud o precio comercial de una licencia).}
+
+\subsection*{OpEx --- Costes operacionales}
+
+\ph{Gastos recurrentes asociados al desarrollo y mantenimiento.}
+
+\subsubsection*{Personal}
+
+\ph{Indica el rol, la tarifa por hora y la justificación de esa tarifa
+(convenio colectivo, mercado laboral de referencia, etc.).}
+
+\begin{longtable}{P{3.5cm} P{2cm} P{2cm} P{3cm} P{3cm}}
+  \toprule
+  \textbf{Actividad} & \textbf{H. estimadas} & \textbf{H. reales} &
+  \textbf{Coste estimado (€)} & \textbf{Coste real (€)} \\
+  \midrule
+  \endhead
+  \ph{Actividad 1}        & \ph{X} & \ph{Y} & \ph{0,00} & \ph{0,00} \\[0.3em]
+  \ph{Actividad 2}        & \ph{X} & \ph{Y} & \ph{0,00} & \ph{0,00} \\[0.3em]
+  \ph{Actividad 3}        & \ph{X} & \ph{Y} & \ph{0,00} & \ph{0,00} \\[0.3em]
+  \midrule
+  \textbf{Total personal} & \textbf{\ph{X}} & \textbf{\ph{Y}} & \textbf{\ph{0,00}} & \textbf{\ph{0,00}} \\
+  \bottomrule
+  \caption{Desglose de costes de personal (OpEx).}
+  \label{tab:coste_personal}
+\end{longtable}
+
+\subsubsection*{Herramientas y servicios de desarrollo}
+
+\begin{longtable}{P{4cm} P{4cm} P{1.8cm} P{2.7cm}}
+  \toprule
+  \textbf{Herramienta} & \textbf{Licencia utilizada} & \textbf{Coste real} & \textbf{Valor de mercado} \\
+  \midrule
+  \endhead
+  \ph{Herramienta 1} & \ph{Licencia.} & \ph{0\,€} & \ph{X\,€/año} \\[0.3em]
+  \ph{Herramienta 2} & \ph{Licencia.} & \ph{0\,€} & \ph{X\,€/año} \\[0.3em]
+  \midrule
+  \textbf{Total herramientas} & & \textbf{\ph{0\,€}} & \textbf{\ph{X\,€/año}} \\
+  \bottomrule
+  \caption{Costes de herramientas y servicios de desarrollo (OpEx).}
+  \label{tab:coste_herramientas}
+\end{longtable}
+
+\subsection*{Resumen del presupuesto (TCO)}
+
+\begin{longtable}{P{4cm} P{3cm} P{3cm} P{3cm}}
+  \toprule
+  \textbf{Categoría} & \textbf{Tipo} & \textbf{Coste real} & \textbf{Valor de mercado} \\
+  \midrule
+  \endhead
+  Infraestructura y licencias & CapEx & \ph{0,00\,€} & \ph{X\,€} \\
+  Personal                    & OpEx  & \ph{X\,€}    & \ph{X\,€} \\
+  Herramientas y servicios    & OpEx  & \ph{0,00\,€} & \ph{X\,€} \\
+  \midrule
+  \textbf{TCO total}          &       & \textbf{\ph{X\,€}} & \textbf{\ph{X\,€}} \\
+  \bottomrule
+  \caption{Resumen del presupuesto del proyecto (TCO = CapEx + OpEx).}
+  \label{tab:presupuesto_total}
+\end{longtable}
+
+\ph{Cierra la sección comentando el coste real frente al valor de mercado
+y la influencia del entorno académico (licencias educativas, equipos cedidos\dots).}

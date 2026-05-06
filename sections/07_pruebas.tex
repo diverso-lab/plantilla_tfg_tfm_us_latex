@@ -1,0 +1,123 @@
+\chapter{Pruebas y validación}
+\label{chap:pruebas}
+
+\ph{Este capítulo describe cómo se ha verificado que el sistema cumple los
+requisitos. Las secciones siguen el orden clásico de la \emph{pirámide de
+pruebas}: de la base (muchas pruebas, rápidas y baratas) a la cumbre (pocas,
+lentas y caras). En la base están las pruebas unitarias, en el medio las
+de integración y en la cima las de extremo a extremo / aceptación.}
+
+\section{Estrategia de pruebas}
+\label{sec:estrategia_pruebas}
+
+\ph{Resumen del enfoque adoptado: niveles de pruebas usados, framework
+elegido y entorno en el que se ejecutan. Adapta los niveles al tipo de TFG
+(software, hardware, modelo de IA, estudio empírico\dots).}
+
+\ph{Niveles de la pirámide aplicados en este TFG (incluye los que apliquen):}
+
+\begin{itemize}
+  \item \textbf{\ph{Pruebas unitarias}}: \ph{base de la pirámide. Verifican
+        unidades aisladas (funciones, clases, módulos). Son las más numerosas
+        y rápidas; deben ser deterministas y no depender de servicios externos.}
+  \item \textbf{\ph{Pruebas de integración}}: \ph{nivel intermedio. Comprueban
+        que varios componentes funcionan juntos correctamente, incluyendo
+        contratos con servicios externos (BD, APIs internas\dots).}
+  \item \textbf{\ph{Pruebas de extremo a extremo / sistema}}: \ph{cumbre de la
+        pirámide. Validan flujos completos desde la perspectiva del usuario o
+        cliente. Son las menos numerosas porque son las más lentas y frágiles.}
+  \item \textbf{\ph{Pruebas de aceptación}} (opcional): \ph{cotejan el sistema
+        frente a los requisitos del Capítulo~\ref{chap:requisitos}.}
+\end{itemize}
+
+\ph{Comenta brevemente el entorno de pruebas: si las dependencias externas
+son reales, simuladas o efímeras (en memoria, contenedores desechables,
+mocks\dots) y cómo se garantiza el aislamiento entre tests.}
+
+\section{Pruebas unitarias}
+\label{sec:pruebas_unitarias}
+
+\ph{Describe cómo se prueban los componentes centrales del sistema en
+aislamiento (la lógica de negocio, el algoritmo principal o el módulo más
+crítico del TFG). Indica qué grupos de casos cubre, no la lista exhaustiva.}
+
+\ph{Grupos de casos típicos:}
+
+\begin{itemize}
+  \item \textbf{\ph{Caso nominal}}: \ph{entrada válida que debe producir el
+        resultado esperado.}
+  \item \textbf{\ph{Entradas inválidas}}: \ph{datos mal formados, fuera de
+        rango o con campos ausentes.}
+  \item \textbf{\ph{Casos límite}}: \ph{valores en la frontera del dominio
+        admisible.}
+  \item \textbf{\ph{Reglas de negocio}}: \ph{combinaciones que activan
+        restricciones específicas del dominio.}
+\end{itemize}
+
+\ph{Si la lógica del módulo no se reduce a un booleano, comenta también qué
+información complementaria se valida (mensajes, códigos de error, listas de
+campos afectados\dots).}
+
+\section{Pruebas de integración}
+\label{sec:pruebas_integracion}
+
+\ph{Describe las pruebas que ejercitan varios componentes a la vez.
+Conviene separarlas según los componentes que combinan.}
+
+\begin{itemize}
+  \item \ph{Pruebas sobre el contrato con la base de datos / capa de
+        persistencia (ORM, esquemas, transacciones).}
+  \item \ph{Pruebas sobre la capa de servicios o API
+        (códigos de respuesta, contratos de entrada/salida, autenticación,
+        control de acceso entre usuarios).}
+  \item \ph{Pruebas sobre integraciones con servicios externos
+        (proveedores de identidad, almacenamiento, APIs de terceros\dots).}
+\end{itemize}
+
+\ph{Documenta también las pruebas de casos negativos
+(valores fuera de rango, restricciones violadas, datos incompletos\dots).}
+
+\section{Pruebas de extremo a extremo}
+\label{sec:pruebas_e2e}
+
+\ph{Describe la validación del sistema desde la perspectiva del usuario
+final. No tiene por qué ejecutarse en un navegador o entorno gráfico real:
+muchas veces basta con automatizar el flujo a través de la interfaz pública
+del sistema (HTTP, CLI, etc.). Estas pruebas son las menos numerosas pero
+las que dan más confianza en que el sistema funciona como un todo.}
+
+\ph{Plantilla de pasos del flujo principal validado:}
+
+\begin{enumerate}
+  \item \ph{Paso 1.}
+  \item \ph{Paso 2.}
+  \item \ph{Paso 3.}
+  \item \ph{Paso 4.}
+  \item \ph{Paso 5.}
+\end{enumerate}
+
+\ph{Casos complementarios habituales:}
+
+\begin{itemize}
+  \item \ph{Estado inicial vacío.}
+  \item \ph{Repetición del flujo con varias instancias y comprobación del orden.}
+  \item \ph{Acceso no autorizado o sesión inválida.}
+  \item \ph{Recuperación tras un error controlado.}
+\end{itemize}
+
+\section{Cobertura y métricas de calidad}
+\label{sec:cobertura}
+
+\ph{Indica las métricas que has usado para evaluar la calidad de la suite
+y, si procede, los umbrales mínimos exigidos en CI.}
+
+\ph{Métricas habituales:}
+
+\begin{itemize}
+  \item \ph{Cobertura de líneas / ramas.}
+  \item \ph{Número de pruebas y desglose por nivel de la pirámide.}
+  \item \ph{Resultado del análisis estático (linter, tipado).}
+\end{itemize}
+
+\ph{Comenta también qué se excluye de la medición
+(ficheros generados, plantillas, código de migración, dependencias externas\dots).}

@@ -1,0 +1,87 @@
+\chapter{Manual de instalación y despliegue}
+\label{app:manual_instalacion}
+
+\ph{Este apéndice describe los pasos para instalar y desplegar el sistema en
+un entorno limpio. Debe ser lo bastante detallado para que un tercero
+(p.\,ej.\ otro estudiante o un evaluador) pueda reproducir el despliegue
+sin contacto con el autor/a.}
+
+\section{Requisitos previos}
+\label{sec:requisitos_previos}
+
+\ph{Lista del software, hardware y credenciales necesarios antes de empezar.
+Indica versiones concretas siempre que sea posible.}
+
+\begin{itemize}
+  \item \textbf{Sistema operativo:} \ph{p.\,ej.\ Linux Ubuntu 24.04 LTS / macOS / Windows 11.}
+  \item \textbf{Lenguaje y runtime:} \ph{p.\,ej.\ Python 3.x / Node 20 / Java 17.}
+  \item \textbf{Gestor de paquetes:} \ph{pip / npm / maven\dots}
+  \item \textbf{Servicios externos:} \ph{base de datos, broker de mensajería,
+        almacenamiento\dots}
+  \item \textbf{Otras herramientas:} \ph{Docker, Git, etc.}
+\end{itemize}
+
+\section{Obtención del código fuente}
+\label{sec:obtencion_codigo}
+
+\ph{Indica el repositorio donde está alojado el código y cómo clonarlo:}
+
+\begin{verbatim}
+git clone <URL del repositorio>
+cd <nombre del proyecto>
+\end{verbatim}
+
+\section{Instalación de dependencias}
+\label{sec:instalacion_dependencias}
+
+\ph{Comandos para instalar las dependencias del proyecto en un entorno
+aislado (virtualenv, contenedor, etc.). Si hay variables de entorno o
+ficheros de configuración que el usuario debe rellenar, lístalos aquí.}
+
+\begin{verbatim}
+[Comandos de instalación de dependencias]
+
+[Variables de entorno requeridas:
+ - VAR_1 = ...
+ - VAR_2 = ...]
+\end{verbatim}
+
+\section{Configuración del entorno}
+\label{sec:configuracion_entorno}
+
+\ph{Pasos adicionales antes de poder ejecutar el sistema: creación de la base
+de datos, ejecución de migraciones, carga de datos iniciales, generación de
+claves, configuración del proxy inverso, etc.}
+
+\begin{verbatim}
+[Pasos de configuración inicial]
+\end{verbatim}
+
+\section{Ejecución}
+\label{sec:ejecucion}
+
+\ph{Comando o comandos para arrancar el sistema en local. Indica también
+en qué URL/puerto queda disponible.}
+
+\begin{verbatim}
+[Comando de arranque]
+\end{verbatim}
+
+\section{Despliegue en producción}
+\label{sec:despliegue_produccion}
+
+\ph{Si el sistema se despliega en un entorno productivo (servidor propio,
+nube, PaaS\dots), describe el proceso paso a paso: construcción de la
+imagen, publicación en el registro, despliegue en el host, configuración
+del proxy/HTTPS, etc.}
+
+\begin{verbatim}
+[Pasos de despliegue en producción]
+\end{verbatim}
+
+\section{Verificación de la instalación}
+\label{sec:verificacion}
+
+\ph{Cómo comprobar que la instalación ha sido correcta: ejecución de la
+suite de pruebas, acceso a una pantalla concreta, llamada a un endpoint
+de \textit{health check}, etc.}
