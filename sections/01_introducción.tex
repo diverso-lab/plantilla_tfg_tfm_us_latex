@@ -3,7 +3,11 @@
 
 \ph{Este capítulo presenta el trabajo. Da al lector el contexto mínimo para entender
 qué se aborda, por qué es relevante, qué se pretende conseguir y qué queda fuera.
-No se entra todavía en detalles técnicos: eso pertenece al estado del arte y al diseño.}
+No se entra todavía en detalles técnicos: eso pertenece al estado del arte y al diseño.
+Fija aquí el registro que mantendrás en toda la memoria: redacción impersonal
+(``se ha desarrollado'') o primera persona del plural (``hemos desarrollado''),
+pero consistente de principio a fin, y prosa académica sin coloquialismos
+(consulta la Guía de estilo incluida al inicio del documento en modo borrador).}
 
 \section{Contexto}
 \label{sec:contexto}
@@ -54,8 +58,20 @@ Conecta el problema (sección anterior) con la solución que se va a proponer
 \label{sec:objetivos}
 
 \ph{Define el objetivo general del trabajo en una o dos frases, y a continuación
-los objetivos específicos en forma de lista. Cada objetivo específico debe ser
-verificable: al final del proyecto debe poder afirmarse si se ha cumplido o no.}
+los objetivos específicos en forma de lista. Formula cada objetivo específico
+siguiendo los criterios \textbf{SMART}: \textbf{S}pecific (específico: una sola
+cosa, sin ambigüedad), \textbf{M}easurable (medible: con una métrica o criterio
+de éxito verificable), \textbf{A}chievable (alcanzable: realista con los recursos
+y el plazo de un TFG), \textbf{R}elevant (relevante: conectado con una de las
+limitaciones de la Sección~\ref{sec:problema}) y \textbf{T}ime-bound (acotado en
+el tiempo: realizable dentro del calendario del Capítulo~\ref{chap:planificacion}).}
+
+\ph{Usa verbos de resultado, no de actividad: evita ``estudiar'', ``aprender'' o
+``profundizar en'' (no se puede verificar cuándo terminan) y prefiere
+``implementar X que soporte Y'', ``alcanzar una cobertura del X\,\%'', ``reducir
+el tiempo de Z por debajo de N segundos''. Ejemplo de objetivo bien formulado:
+``Implementar un módulo de búsqueda que resuelva consultas sobre 10\,000
+registros en menos de 200~ms, dando respuesta a la Limitación~1''.}
 
 \ph{Objetivo general: ``Desarrollar/implementar/diseñar \dots con el fin de \dots''.}
 
@@ -66,6 +82,32 @@ verificable: al final del proyecto debe poder afirmarse si se ha cumplido o no.}
   \item \textbf{\ph{Objetivo específico 4:}} \ph{descripción concreta y medible.}
   \item \textbf{\ph{Objetivo específico 5 (opcional):}} \ph{descripción concreta y medible.}
 \end{enumerate}
+
+\ph{Resume en la tabla siguiente el criterio de éxito de cada objetivo, cómo se
+verificará y en qué capítulo. Esta tabla es la columna vertebral de la memoria:
+el Capítulo~\ref{chap:resultados} dará el veredicto sobre \textbf{todos} los
+criterios, recapitulando con \textbackslash ref la evidencia de aquellos que se
+verifican en capítulos anteriores, y el Capítulo~\ref{chap:conclusiones}
+sintetizará el grado de cumplimiento final. Si el criterio es cuantitativo,
+fíjalo también como RNF en el Capítulo~\ref{chap:requisitos} con el
+\textbf{mismo} umbral: un único umbral, dos vistas. Conviene rellenar la
+columna «Cap.» con \textbackslash ref (p.\,ej.\ Capítulo~\ref{chap:pruebas})
+para que la numeración se mantenga sola.}
+
+\begin{longtable}{@{}P{1cm} P{6.2cm} P{4.6cm} P{1.7cm}@{}}
+  \toprule
+  \textbf{Obj.} & \textbf{Criterio de éxito (medible)} & \textbf{Cómo se verifica} & \textbf{Cap.} \\
+  \midrule
+  \endhead
+  O1 & \ph{p.\,ej.\ el sistema cubre todos los RF de prioridad alta} & \ph{matriz de trazabilidad y suite de pruebas} & \ph{4, 7} \\[0.3em]
+  O2 & \ph{p.\,ej.\ tiempo de respuesta inferior a 200~ms en consultas típicas} & \ph{medición sobre el banco de pruebas} & \ph{8} \\[0.3em]
+  O3 & \ph{criterio medible con métrica y umbral.} & \ph{evidencia que lo demuestra.} & \ph{X} \\[0.3em]
+  O4 & \ph{criterio medible con métrica y umbral.} & \ph{evidencia que lo demuestra.} & \ph{X} \\[0.3em]
+  O5 & \ph{criterio medible con métrica y umbral.} & \ph{evidencia que lo demuestra.} & \ph{X} \\
+  \bottomrule
+  \caption{Criterios de éxito de los objetivos y capítulos donde se verifican.}
+  \label{tab:criterios-exito}
+\end{longtable}
 
 \section{Alcance}
 \label{sec:alcance}
@@ -87,3 +129,44 @@ Es la sección que protege al autor de expectativas desmedidas durante la defens
   \item \ph{Funcionalidad excluida 2 (con una breve justificación).}
   \item \ph{Funcionalidad excluida 3 (con una breve justificación).}
 \end{itemize}
+
+\section{Estructura de la memoria}
+\label{sec:estructura_memoria}
+
+\ph{Cierra la introducción con un mapa de lectura: una o dos frases por capítulo.
+No describas solo el contenido (``se presentan los requisitos''), sino el papel
+de cada capítulo en el argumento de la memoria (``se establece qué debe hacer el
+sistema, base contractual del diseño'').}
+
+El resto de la memoria se organiza como sigue:
+
+\begin{itemize}
+  \item El \textbf{Capítulo~\ref{chap:estado_arte}} \ph{revisa los fundamentos
+        teóricos y los trabajos relacionados, identificando el hueco que este
+        trabajo cubre.}
+  \item El \textbf{Capítulo~\ref{chap:planificacion}} \ph{describe la metodología,
+        las fases, los riesgos y el presupuesto con los que se ha gestionado el
+        proyecto.}
+  \item El \textbf{Capítulo~\ref{chap:requisitos}} \ph{especifica qué debe hacer
+        el sistema: requisitos, casos de uso y su trazabilidad, base contractual
+        del resto del trabajo.}
+  \item El \textbf{Capítulo~\ref{chap:diseno}} \ph{presenta cómo se estructura la
+        solución: arquitectura, modelos y decisiones de diseño que responden a
+        los requisitos.}
+  \item El \textbf{Capítulo~\ref{chap:implementacion}} \ph{detalla cómo se
+        materializa el diseño: tecnologías elegidas y módulos construidos.}
+  \item El \textbf{Capítulo~\ref{chap:pruebas}} \ph{muestra cómo se ha verificado
+        que el sistema cumple los requisitos y con qué estrategia de pruebas.}
+  \item El \textbf{Capítulo~\ref{chap:resultados}} \ph{contrasta los resultados
+        obtenidos con los criterios de éxito de la Tabla~\ref{tab:criterios-exito}
+        y los discute frente a los trabajos relacionados.}
+  \item El \textbf{Capítulo~\ref{chap:conclusiones}} \ph{da el veredicto sobre el
+        cumplimiento de los objetivos, reconoce las limitaciones y propone líneas
+        de trabajo futuro.}
+\end{itemize}
+
+% --- Transición al siguiente capítulo (último párrafo del roadmap) ---
+\ph{Remata el roadmap con un párrafo puente de 2--4 líneas que lance al lector al
+siguiente capítulo. Por ejemplo: «Definidos el problema, los objetivos y el
+alcance, el Capítulo~\ref{chap:estado_arte} revisa los fundamentos y las
+soluciones existentes sobre los que se construye la propuesta».}

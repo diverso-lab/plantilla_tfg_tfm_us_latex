@@ -1,0 +1,145 @@
+\chapter{Conclusiones y trabajo futuro}
+\label{chap:conclusiones}
+
+\ph{El último capítulo cierra la memoria en tres pasos: las
+\emph{conclusiones} (qué se ha conseguido, apoyado en la evidencia del
+Capítulo~\ref{chap:resultados}, que el lector acaba de leer), las
+\emph{limitaciones} (qué no se ha conseguido o no se ha podido validar) y
+el \emph{trabajo futuro} (qué líneas abre todo lo anterior).}
+
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+\ph{Estructura recomendada:}
+
+\ph{1. \textbf{Recapitulación del problema}: una o dos frases recordando
+qué problema se planteaba al inicio (sin entrar en detalles, ya que el
+lector viene del Capítulo~\ref{chap:resultados}).}
+
+\ph{2. \textbf{Cumplimiento de los objetivos}: revisa los objetivos
+específicos planteados en el Capítulo~\ref{chap:intro} y argumenta cómo
+se han cubierto, \textbf{apoyando cada afirmación en evidencia concreta}:
+la tabla, figura o sección del Capítulo~\ref{chap:resultados} que lo
+demuestra (o, si procede, de los Capítulos~\ref{chap:requisitos}
+a~\ref{chap:pruebas}). Evita el «se ha cumplido» sin soporte: todo
+cumplimiento debe poder verificarse en un capítulo anterior. Dedica un
+párrafo a cada objetivo, en el mismo orden en que se enunciaron.}
+
+\begin{itemize}
+  \item \ph{El \textbf{primer objetivo} \dots se ha cumplido mediante
+        \dots, como muestra la Tabla/Figura~\dots\ del
+        Capítulo~\ref{chap:resultados}.}
+  \item \ph{El \textbf{segundo objetivo} \dots se ha cumplido mediante
+        \dots, como muestra \dots}
+  \item \ph{El \textbf{tercer objetivo} \dots se ha cumplido mediante
+        \dots, como muestra \dots}
+  \item \ph{El \textbf{cuarto objetivo} \dots se ha cumplido mediante
+        \dots, como muestra \dots}
+  \item \ph{El \textbf{quinto objetivo} \dots se ha cumplido
+        \emph{parcialmente} mediante \dots, como se discute en la
+        Sección~\ref{sec:limitaciones}.}
+\end{itemize}
+
+\ph{La siguiente tabla sintetiza el cumplimiento y cierra la cadena
+abierta por la Tabla~\ref{tab:criterios-exito} del
+Capítulo~\ref{chap:intro}: mismos objetivos, mismos criterios de éxito,
+ahora con su grado de cumplimiento y la evidencia que lo acredita.
+La columna «Grado» usa la escala Completo / Parcial / No alcanzado:
+«Completo» significa que el criterio se cumple íntegramente con la
+evidencia citada; «Parcial», que se cumple solo en parte, explicando qué
+falta en la Sección~\ref{sec:limitaciones}; «No alcanzado», que el
+criterio no se ha cumplido, analizando la causa en la
+Sección~\ref{sec:limitaciones}. Admitir un «Parcial» con remisión honesta
+a la Sección~\ref{sec:limitaciones} es señal de madurez, no de debilidad.}
+
+\begin{longtable}{@{}P{1cm} P{5.5cm} P{2cm} P{5cm}@{}}
+  \toprule
+  \textbf{Obj.} & \textbf{Criterio de éxito} & \textbf{Grado} & \textbf{Evidencia (ref.)} \\
+  \midrule
+  \endhead
+  O1 & \ph{Criterio de éxito del objetivo 1.} & \ph{Completo} & \ph{Tabla/Figura/Sección que lo acredita.} \\[0.3em]
+  O2 & \ph{Criterio de éxito del objetivo 2.} & \ph{Completo} & \ph{Evidencia.} \\[0.3em]
+  O3 & \ph{Criterio de éxito del objetivo 3.} & \ph{Completo} & \ph{Evidencia.} \\[0.3em]
+  O4 & \ph{Criterio de éxito del objetivo 4.} & \ph{Completo} & \ph{Evidencia.} \\[0.3em]
+  O5 & \ph{Criterio de éxito del objetivo 5.} & \ph{Parcial}  & \ph{Evidencia y remisión a la Sección~\ref{sec:limitaciones}.} \\
+  \bottomrule
+  \caption{Grado de cumplimiento de los objetivos y evidencia asociada.}
+  \label{tab:cumplimiento-objetivos}
+\end{longtable}
+
+\ph{3. \textbf{Aportaciones más amplias}: comenta brevemente la contribución
+del trabajo más allá del producto en sí. Por ejemplo, aplicación de un
+paradigma a un dominio nuevo, integración con un ecosistema, validación
+empírica de una técnica, etc.}
+
+\ph{4. \textbf{Reflexión crítica y lecciones aprendidas}: resume en un
+párrafo la desviación global de horas y en qué fases se concentró,
+remitiendo al cierre del Capítulo~\ref{chap:planificacion}
+(Sección~\ref{sec:cierre}) para el detalle, sin duplicarlo. Añade aquí
+una o dos lecciones \emph{nuevas}, técnicas o personales: qué decisión
+repetirías, qué harías de otra forma si empezaras hoy, qué sabes ahora
+que no sabías al comenzar. Dos o tres frases honestas valen más que un
+párrafo genérico.}
+
+\ph{5. \textbf{Cierre}: una frase que cierre el capítulo conectando las
+limitaciones identificadas en la introducción con la solución desarrollada
+(``el sistema desarrollado resuelve los X problemas estructurales\dots'').}
+
+\section{Limitaciones}
+\label{sec:limitaciones}
+
+\ph{Reflexión honesta sobre lo que el trabajo \emph{no} hace o no ha
+podido demostrar. Reconocer limitaciones no resta nota: demuestra que
+comprendes el alcance real de lo construido. Para cada limitación sigue
+el patrón \emph{causa} (decisión, restricción de tiempo o de recursos)
++ \emph{efecto} práctico + \emph{por qué es asumible o cómo se
+mitigaría}. Organízalas en tres categorías:}
+
+\begin{itemize}
+  \item \textbf{\ph{Limitación técnica:}} \ph{qué no hace el sistema o
+        dónde rinde peor: p.\,ej., rendimiento no evaluado bajo carga
+        real, dependencia de un servicio externo, escalabilidad no
+        contrastada\dots\ Causa, efecto y mitigación.}
+  \item \textbf{\ph{Limitación de validación:}} \ph{qué no se ha podido
+        medir o con qué amenazas a la validez: p.\,ej., datos sintéticos,
+        sin usuarios finales, una sola configuración de prueba\dots\
+        Conecta con la discusión de la Sección~\ref{sec:discusion} del
+        Capítulo~\ref{chap:resultados}.}
+  \item \textbf{\ph{Limitación de alcance:}} \ph{qué quedó fuera del
+        trabajo y por qué, de forma coherente con lo declarado en la
+        Sección~\ref{sec:alcance}.}
+\end{itemize}
+
+\ph{Cada limitación es candidata natural a una línea de la
+Sección~\ref{sec:trabajo_futuro}: si una limitación no genera línea
+futura ni se justifica como asumible, queda coja.}
+
+\section{Trabajo futuro}
+\label{sec:trabajo_futuro}
+
+\ph{Líneas de extensión del trabajo, ordenadas de mayor a menor
+inmediatez. Cada línea debe responder a tres preguntas: \emph{qué} se
+haría, \emph{por qué} merece la pena (anclándola a una limitación de la
+Sección~\ref{sec:limitaciones} o a una tendencia del
+Capítulo~\ref{chap:estado_arte}, idealmente con cita) y qué
+\emph{viabilidad o dificultad} estimada tiene. Al menos una línea debe
+ser genuinamente innovadora (no «añadir más tests»), explicando qué la
+hace novedosa.}
+
+\textbf{\ph{Línea 1 (corto plazo): título corto.}} \ph{Qué: \dots\
+Por qué: resuelve la limitación técnica identificada en la
+Sección~\ref{sec:limitaciones}. Viabilidad: encaja con la arquitectura
+actual porque \dots; dificultad estimada baja.}
+
+\textbf{\ph{Línea 2 (corto plazo): título corto.}} \ph{Qué / por qué
+(limitación de validación) / viabilidad-dificultad.}
+
+\textbf{\ph{Línea 3 (medio plazo): título corto.}} \ph{Qué / por qué
+(funcionalidad excluida del alcance) / viabilidad-dificultad.}
+
+\textbf{\ph{Línea 4 (innovadora): título corto.}} \ph{Qué: extensión
+ambiciosa (nueva técnica, dominio o integración). Por qué: conecta con
+la tendencia identificada en el estado del
+arte~\cite{apellido2024articulo}. Qué la hace novedosa: \dots\
+Viabilidad: qué haría falta para abordarla y por qué este trabajo es un
+buen punto de partida.}

@@ -1,0 +1,174 @@
+\chapter{Resultados y discusión}
+\label{chap:resultados}
+
+\ph{Mientras el Capítulo~\ref{chap:pruebas} verificaba que el sistema está
+bien construido, este capítulo evalúa si resuelve el problema planteado en el
+Capítulo~\ref{chap:intro} y en qué medida: presenta los resultados obtenidos,
+los contrasta con los criterios de éxito fijados, los compara con los
+trabajos previos y los interpreta críticamente. Es el capítulo donde el
+tribunal busca la evidencia de lo conseguido: cada afirmación debe apoyarse
+en una tabla o una figura.}
+
+\section{Diseño de la evaluación}
+\label{sec:diseno_evaluacion}
+
+\ph{Antes de mostrar números, define qué se mide y cómo. Retoma la
+Tabla~\ref{tab:criterios-exito} del Capítulo~\ref{chap:intro}: sus criterios
+de éxito son el guion de esta evaluación, y cada uno debe quedar respondido
+en la Sección~\ref{sec:resultados_objetivos}. Describe:}
+
+\begin{itemize}
+  \item \textbf{\ph{Entorno de ejecución}}: \ph{hardware (CPU, RAM\dots) y
+        software (sistema operativo, versiones relevantes) sobre los que se
+        han obtenido las medidas, para que sean reproducibles.}
+  \item \textbf{\ph{Datos o casos de estudio}}: \ph{origen, tamaño y
+        representatividad de los datos, escenarios o usuarios empleados en la
+        evaluación.}
+  \item \textbf{\ph{Repeticiones}}: \ph{si hay medidas de rendimiento, indica
+        cuántas veces se repite cada medición y por qué: una sola ejecución
+        está sujeta a variabilidad (carga del sistema, caché, red\dots) y no
+        es concluyente.}
+  \item \textbf{\ph{Agregación}}: \ph{cómo se resumen los datos: media y
+        desviación típica, mediana, percentiles (p.\,ej.\ p95 para tiempos de
+        respuesta)\dots y por qué ese estadístico es el adecuado. Toda media
+        debe ir acompañada de su desviación típica o de un intervalo de
+        confianza; y si se comparan alternativas, conviene apoyar la
+        comparación en un test estadístico sencillo (t-test o Wilcoxon).}
+\end{itemize}
+
+\ph{Rigor: distingue siempre lo que se ha \emph{medido} de lo que es una
+\emph{impresión subjetiva}. «La interfaz es intuitiva» no es un resultado;
+«8 de 10 usuarios completaron la tarea sin ayuda en menos de 2 minutos» sí
+lo es.}
+
+\section{Resultados}
+\label{sec:resultados_objetivos}
+
+\ph{Organiza esta sección con una subsección por objetivo (o por criterio de
+éxito), en el mismo orden en que se enunciaron en el
+Capítulo~\ref{chap:intro}. En cada subsección sigue el patrón: (1) presenta
+el resultado en una tabla o figura, (2) referénciala desde el texto y (3)
+interprétala frente al umbral fijado. Recuerda el principio: toda tabla o
+figura se referencia desde el texto y se interpreta — un resultado sin
+interpretación no es un resultado. Si el criterio de un objetivo ya quedó
+verificado en un capítulo anterior (columna Cap.\ de la
+Tabla~\ref{tab:criterios-exito}), su subsección se limita a recapitular esa
+evidencia con \textbackslash ref y a dar el veredicto frente al criterio,
+sin repetir datos. Las dos subsecciones siguientes modelan ambos patrones:
+O1 ejemplifica la recapitulación y O2 la medición completa.}
+
+\subsection{\ph{Resultados sobre el objetivo O1: título descriptivo}}
+\label{subsec:resultados_o1}
+
+\ph{Patrón RECAPITULACIÓN, para objetivos cuyo criterio ya quedó verificado
+en un capítulo anterior según la columna Cap.\ de la
+Tabla~\ref{tab:criterios-exito}. Siguiendo el ejemplo conductor, el criterio
+de O1 (cobertura de todos los RF de prioridad alta) quedó verificado en los
+Capítulos~\ref{chap:requisitos} y~\ref{chap:pruebas}: recapitula esa
+evidencia con \textbackslash ref —la matriz de trazabilidad de la
+Tabla~\ref{tab:trazabilidad_rf_pruebas} muestra que cada RF tiene al menos
+una prueba que lo cubre, y la Tabla~\ref{tab:resumen_suite} acredita que la
+suite completa pasa— y cierra con el veredicto frente al criterio («el
+criterio de éxito asociado al objetivo O1 se considera cumplido»), sin
+repetir datos ni añadir tablas nuevas.}
+
+\subsection{\ph{Resultados sobre el objetivo O2: título descriptivo}}
+\label{subsec:resultados_o2}
+
+\ph{Patrón MEDICIÓN COMPLETA, para objetivos cuyo criterio se verifica en
+este capítulo. Indica qué se ha medido para este objetivo y en qué
+condiciones (remite a la Sección~\ref{sec:diseno_evaluacion}, no las
+repitas). La Tabla~\ref{tab:resultados_o2} resume las métricas frente a sus
+umbrales.}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}P{4.5cm} P{2.5cm} P{4.5cm} P{2cm}@{}}
+\toprule
+\textbf{Métrica} & \textbf{Valor} & \textbf{Umbral (RNF / criterio)} & \textbf{¿Cumple?} \\
+\midrule
+\ph{Tiempo medio de respuesta} & \ph{152~ms} & \ph{$\leq$ 200~ms (RNF-01)} & \ph{Sí} \\
+\ph{Métrica 2} & \ph{\dots} & \ph{\dots (Tabla~\ref{tab:criterios-exito})} & \ph{\dots} \\
+\ph{Métrica 3} & \ph{\dots} & \ph{\dots} & \ph{\dots} \\
+\bottomrule
+\end{tabular}
+\caption{\ph{Resultados de las métricas asociadas al objetivo O2.}}
+\label{tab:resultados_o2}
+\end{table}
+
+% Hueco para la gráfica del resultado. Descomenta y adapta:
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{resultados_o2}
+%   \caption{Pie autoexplicativo: qué se muestra, con qué datos y qué se observa.}
+%   \label{fig:resultados_o2}
+% \end{figure}
+
+\ph{(Espacio reservado para una gráfica del resultado. Elige el tipo
+adecuado al dato: líneas para evolución o escalabilidad, barras para comparar
+alternativas, diagramas de caja para mostrar dispersión. Pie autoexplicativo
+y referencia desde el texto.)}
+
+\ph{Interpretación crítica contra el umbral, no valoración vaga: en lugar de
+«el rendimiento salió bien», escribe «el valor de 152~ms queda por debajo del
+umbral de 200~ms fijado en el RNF-01 (Tabla~\ref{tab:rnf}), por tanto el
+criterio de éxito asociado al objetivo O2 se considera cumplido». Si una
+métrica no alcanza el umbral, dilo igual de claro y analiza la causa:
+reconocerlo vale más ante el tribunal que ocultarlo.}
+
+\subsection{\ph{Resultados sobre el objetivo O3: título descriptivo}}
+\label{subsec:resultados_o3}
+
+\ph{Elige para cada objetivo el patrón que corresponda (recapitulación o
+medición completa) y añade tantas subsecciones como objetivos tenga el
+trabajo; ningún objetivo del Capítulo~\ref{chap:intro} debe quedarse sin
+resultado.}
+
+\section{Comparación con trabajos previos}
+\label{sec:comparacion_trabajos}
+
+\ph{Retoma la Tabla~\ref{tab:comparativa_relacionados} del
+Capítulo~\ref{chap:estado_arte}, ahora con tus resultados en la mano: ¿qué
+celdas marcadas como «Parcial» o «No» en los otros trabajos cubre ya tu
+solución, con qué evidencia de la Sección~\ref{sec:resultados_objetivos}? ¿Y
+en qué queda tu trabajo por detrás de ellos? Una comparación honesta en ambas
+direcciones es lo que distingue un análisis riguroso de un alegato.}
+
+\ph{Si los trabajos relacionados publican métricas comparables (mismos datos
+o condiciones equiparables), añade aquí una tabla numérica con una fila por
+métrica y una columna por trabajo, citando la fuente de cada
+cifra~\cite{apellido2024articulo}. Las cifras propias deben ir acompañadas
+de su dispersión (desviación típica o intervalo de confianza), no solo de la
+media. Si no existen métricas comparables, no la
+fuerces: justifica por qué la comparación directa no es posible (datos,
+entorno o alcance distintos) y mantén la comparación cualitativa por
+criterios.}
+
+\section{Discusión}
+\label{sec:discusion}
+
+\ph{Interpretación global, sin repetir los números anteriores: (1) ¿qué
+significan los resultados en conjunto? ¿responden al problema de la
+Sección~\ref{sec:problema}? (2) ¿qué resultados fueron inesperados y a qué
+los atribuyes (hipótesis razonadas, no excusas)? (3) ¿qué compromisos
+(\emph{trade-offs}) revelan: rendimiento frente a simplicidad, coste frente a
+precisión, generalidad frente a especialización\dots?}
+
+\ph{Cierra con un párrafo breve de amenazas a la validez: qué podría
+debilitar estas conclusiones, distinguiendo validez \emph{interna} (factores
+del propio experimento: datos sintéticos, selección de casos, configuración),
+\emph{externa} (hasta qué punto generalizan los resultados a otros entornos,
+datos o usuarios) y \emph{de constructo} (¿miden las métricas elegidas
+realmente lo que se quiere evaluar?). Basta un párrafo: el tratamiento
+completo de las limitaciones se hace en la Sección~\ref{sec:limitaciones},
+no lo dupliques aquí.}
+
+% --- Transición al siguiente capítulo ---
+\ph{Cierra el capítulo con un párrafo puente de 2--4 líneas: qué queda
+establecido aquí y qué pregunta abre el capítulo siguiente. Por ejemplo:
+«Evaluados los resultados frente a los criterios de éxito y discutido su
+alcance, el Capítulo~\ref{chap:conclusiones} sintetiza el grado de
+cumplimiento de los objetivos planteados en el Capítulo~\ref{chap:intro},
+las limitaciones del trabajo y las líneas de trabajo futuro que estos
+resultados abren».}

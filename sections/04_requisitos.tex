@@ -87,7 +87,7 @@ bloques temáticos (gestión de usuarios, lógica de negocio principal, explorac
 Cada requisito tiene un identificador único, un nombre, una descripción
 y una prioridad (Alta/Media/Baja).}
 
-\begin{longtable}{P{1.7cm} P{3.6cm} P{7.2cm} P{1.3cm}}
+\begin{longtable}{P{1.7cm} P{3.6cm} P{7cm} P{1.5cm}}
 \toprule
 \textbf{ID} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prior.} \\
 \midrule
@@ -110,19 +110,26 @@ RF-06 & \ph{Nombre del RF}  & \ph{Descripción del comportamiento esperado.} & \
 
 \ph{Atributos transversales del sistema: seguridad, rendimiento, mantenibilidad,
 calidad de código, despliegue, estándares\dots Son tan vinculantes como los
-funcionales y deben poder verificarse.}
+funcionales y deben poder verificarse. Formula cada RNF con una MÉTRICA y un
+UMBRAL comprobables, no con adjetivos vagos: en lugar de «el sistema debe ser
+rápido», escribe «el 95\% de las peticiones se atiende en menos de 200~ms».
+El Capítulo~\ref{chap:resultados} usará estos umbrales como criterios de
+éxito medibles, así que un RNF que no se pueda medir aquí no se podrá
+evaluar allí. El umbral de cada RNF cuantitativo debe coincidir con el del
+criterio de éxito asociado de la Tabla~\ref{tab:criterios-exito}: un único
+umbral, dos vistas.}
 
-\begin{longtable}{P{1.7cm} P{3.6cm} P{7.2cm} P{1.3cm}}
+\begin{longtable}{P{1.7cm} P{3.6cm} P{7cm} P{1.5cm}}
 \toprule
 \textbf{ID} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prior.} \\
 \midrule
 \endhead
-RNF-01 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
-RNF-02 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
-RNF-03 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Media} \\[0.4em]
+RNF-01 & \ph{Nombre del RNF} & \ph{Atributo + métrica + umbral, p.\,ej.\ «el 95\% de las peticiones se atiende en menos de 200~ms, medido con una prueba de carga».} & \ph{Alta} \\[0.4em]
+RNF-02 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad con métrica, umbral y forma de medirlo.} & \ph{Alta} \\[0.4em]
+RNF-03 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad con métrica, umbral y forma de medirlo.} & \ph{Media} \\[0.4em]
 \midrule
-RNF-04 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Alta} \\[0.4em]
-RNF-05 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad y cómo se verifica.} & \ph{Media} \\
+RNF-04 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad con métrica, umbral y forma de medirlo.} & \ph{Alta} \\[0.4em]
+RNF-05 & \ph{Nombre del RNF} & \ph{Atributo de seguridad/rendimiento/calidad con métrica, umbral y forma de medirlo.} & \ph{Media} \\
 \bottomrule
 \caption{Requisitos no funcionales del sistema.}
 \label{tab:rnf}
@@ -290,6 +297,10 @@ Ambos son señales de alerta.}
 \subsection{Requisitos funcionales \texorpdfstring{$\leftrightarrow$}{<->} casos de uso}
 \label{subsec:trazabilidad_rf_cu}
 
+\ph{Ajusta el número de columnas al número real de casos de uso
+especificados (la tabla de ejemplo muestra seis columnas, pero solo se han
+incluido tres fichas de ejemplo).}
+
 \begin{longtable}{P{1.7cm} *{6}{P{1.4cm}}}
 \toprule
 \textbf{} & \textbf{CU-01} & \textbf{CU-02} & \textbf{CU-03} & \textbf{CU-04} & \textbf{CU-05} & \textbf{CU-06} \\
@@ -328,3 +339,11 @@ RNF-02 & \ph{Tipo} & \ph{Test / verificación.} \\
 \caption{Matriz de trazabilidad entre requisitos y pruebas.}
 \label{tab:trazabilidad_rf_pruebas}
 \end{longtable}
+
+% --- Transición al siguiente capítulo ---
+\ph{Cierra el capítulo con un párrafo puente de 2--4 líneas: qué queda
+establecido aquí y qué pregunta abre el capítulo siguiente. Por ejemplo:
+«Con los requisitos especificados y trazados, queda fijado \emph{qué} debe
+hacer el sistema. El Capítulo~\ref{chap:diseno} aborda \emph{cómo}
+satisfacerlos: la arquitectura, los modelos y las decisiones de diseño que
+dan forma a la solución».}

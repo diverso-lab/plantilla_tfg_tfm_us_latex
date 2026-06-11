@@ -1,12 +1,66 @@
 \chapter{Planificación del proyecto}
 \label{chap:planificacion}
 
-\ph{Este capítulo describe cómo se ha gestionado el proyecto: metodología de trabajo,
-fases, hitos, riesgos y presupuesto. Demuestra que el TFG no es solo un producto
-software, sino un proyecto planificado y controlado.}
+\ph{Este capítulo demuestra que el TFG no es solo un producto software, sino un
+proyecto gestionado de principio a fin: se planifica al inicio (acta de constitución,
+interesados, metodología como decisión de planificación, EDT, cronograma como línea
+base y presupuesto como línea base de coste), se controla durante la ejecución
+(comunicaciones, riesgos, control de cambios, calidad) y se cierra formalmente con
+el análisis de desviaciones ---de calendario, esfuerzo y coste--- y las lecciones
+aprendidas. Trata el plan como un documento vivo: la estimación inicial no se borra
+cuando la realidad la contradice, se compara con ella.}
 
-\section{Metodología de desarrollo}
+\section{Acta de constitución del proyecto}
+\label{sec:acta_constitucion}
+
+\ph{Resume en media página el «contrato» inicial del proyecto: qué se va a hacer,
+bajo qué supuestos y con qué restricciones. No repitas la introducción: referencia
+los objetivos (Sección~\ref{sec:objetivos}) y el alcance (Sección~\ref{sec:alcance})
+y céntrate en lo que aún no está escrito (supuestos, restricciones, criterio de cierre).}
+
+\begin{longtable}{@{}P{3.2cm} P{11cm}@{}}
+  \toprule
+  \textbf{Elemento} & \textbf{Descripción} \\
+  \midrule
+  \endhead
+  Propósito          & \ph{Una frase: qué problema resuelve este proyecto y para quién.} \\[0.3em]
+  Objetivos          & \ph{O1--O5; ya enunciados en la Sección~\ref{sec:objetivos}, no los dupliques.} \\[0.3em]
+  Alcance            & \ph{Una línea con qué entra y qué queda fuera (Sección~\ref{sec:alcance}).} \\[0.3em]
+  Supuestos          & \ph{Condiciones que se dan por ciertas: disponibilidad del tutor/a, acceso a datos o usuarios, equipo propio\dots} \\[0.3em]
+  Restricciones      & \ph{Límites no negociables: fecha de entrega, normativa del centro, presupuesto, tecnologías impuestas\dots} \\[0.3em]
+  Entregables principales & \ph{Producto software en repositorio, memoria, presentación de defensa.} \\[0.3em]
+  Criterio de cierre & \ph{Cómo se sabrá que el proyecto ha terminado: objetivos verificados, pruebas superadas, entrega en plazo.} \\
+  \bottomrule
+  \caption{Acta de constitución del proyecto.}
+  \label{tab:acta_constitucion}
+\end{longtable}
+
+\subsection{Interesados del proyecto}
+\label{sec:interesados}
+
+\ph{Identifica a las personas con interés en el proyecto y qué espera cada una.
+En un TFG el listado es corto; lo importante es que ninguna fila quede sin
+expectativa concreta.}
+
+\begin{longtable}{@{}P{2.6cm} P{3.2cm} P{5.6cm} P{2.6cm}@{}}
+  \toprule
+  \textbf{Interesado} & \textbf{Rol} & \textbf{Interés / expectativa} & \textbf{Implicación} \\
+  \midrule
+  \endhead
+  \ph{Autor/a}            & \ph{Ejecución del proyecto.} & \ph{Completar el trabajo con la máxima calidad y en plazo.} & \ph{Diaria} \\[0.3em]
+  \ph{Tutor/es}           & \ph{Supervisión y validación.} & \ph{Avance constante; revisar entregables en las reuniones de seguimiento.} & \ph{Periódica} \\[0.3em]
+  \ph{Tribunal}           & \ph{Evaluación final.} & \ph{Memoria clara, defensa sólida, resultados verificables.} & \ph{Al cierre} \\[0.3em]
+  \ph{Usuarios / terceros} & \ph{Cliente, grupo de investigación, usuarios piloto\dots} & \ph{Expectativa concreta sobre el producto.} & \ph{Puntual} \\
+  \bottomrule
+  \caption{Registro de interesados del proyecto.}
+  \label{tab:interesados}
+\end{longtable}
+
+\section{Metodología}
 \label{sec:metodologia}
+
+\subsection{Metodología de desarrollo}
+\label{sec:metodologia_desarrollo}
 
 \ph{Justifica la metodología (o metodologías) elegida(s) para el desarrollo y para
 la redacción de la memoria. Es habitual usar enfoques distintos para cada fase.}
@@ -14,72 +68,128 @@ la redacción de la memoria. Es habitual usar enfoques distintos para cada fase.
 \ph{Puntos a cubrir:}
 \begin{itemize}
   \item \ph{Metodología elegida (Waterfall, Scrum, Kanban, iterativa\dots) y por qué.}
+  \item \ph{Qué alternativas consideraste y por qué las descartaste (una frase por alternativa basta).}
   \item \ph{Cómo se gestiona el control de versiones (Git, GitHub/GitLab\dots).}
   \item \ph{Si se usan herramientas de seguimiento (issues, tableros, CI), nómbralas brevemente.}
 \end{itemize}
 
-\section{Fases e hitos}
+\subsection{Metodología de validación y evaluación}
+\label{sec:metodologia_validacion}
+
+\ph{Explica cómo se medirá que el proyecto cumple lo prometido. Normalmente combina
+dos vías: (a) pruebas y trazabilidad requisitos--pruebas (Capítulo~\ref{chap:pruebas}),
+y (b) evaluación de resultados frente a los criterios de éxito de la
+Tabla~\ref{tab:criterios-exito}, cuyo análisis se presenta en el
+Capítulo~\ref{chap:resultados}. Aquí basta con declarar el método; los datos van
+en sus capítulos.}
+
+\section{Estructura de descomposición del trabajo (EDT)}
+\label{sec:edt}
+
+\ph{Desglosa el proyecto en paquetes de trabajo con identificador jerárquico de dos
+niveles. La regla de oro: todo entregable debe poder marcarse como hecho/no hecho
+sin ambigüedad. Los IDs se reutilizan en el cronograma y en el cierre para dar
+trazabilidad. Con 6--10 paquetes es suficiente. Desglosa al segundo nivel solo
+donde aporte; los paquetes hoja deben corresponder a entregables.}
+
+\begin{longtable}{@{}P{1cm} P{4.5cm} P{8.8cm}@{}}
+  \toprule
+  \textbf{ID} & \textbf{Paquete de trabajo} & \textbf{Entregable verificable} \\
+  \midrule
+  \endhead
+  1   & \ph{Gestión del proyecto}  & \ph{Plan del proyecto y registros de seguimiento.} \\[0.3em]
+  1.1 & \ph{Planificación inicial} & \ph{Acta de constitución y cronograma (línea base).} \\[0.3em]
+  1.2 & \ph{Seguimiento y control} & \ph{Registros de cambios y de riesgos actualizados.} \\[0.3em]
+  2   & \ph{Análisis y diseño}     & \ph{Catálogo de requisitos y diseño de la solución.} \\[0.3em]
+  2.1 & \ph{Requisitos}            & \ph{Catálogo de requisitos validado con el tutor/a.} \\[0.3em]
+  2.2 & \ph{Diseño de la solución} & \ph{Arquitectura y diseño documentados y aprobados.} \\[0.3em]
+  3   & \ph{Implementación}        & \ph{Producto software versionado en el repositorio.} \\[0.3em]
+  4   & \ph{Pruebas y validación}  & \ph{Suite de pruebas e informe de cobertura.} \\[0.3em]
+  5   & \ph{Memoria y defensa}     & \ph{Memoria entregada y presentación preparada.} \\
+  \bottomrule
+  \caption{Estructura de descomposición del trabajo (EDT).}
+  \label{tab:edt}
+\end{longtable}
+
+\section{Cronograma e hitos (línea base)}
 \label{sec:fases}
 
 \ph{Divide el proyecto en fases claras con un hito (entregable verificable) por fase.
-Es muy recomendable comparar la estimación inicial con las horas realmente invertidas,
-y comentar las desviaciones.}
+La línea base tiene DOS dimensiones: el esfuerzo (columnas \textbf{Est.}\ y
+\textbf{Real}, en horas) y el calendario (columnas \textbf{Fin prev.}\ y
+\textbf{Fin real}, fechas de hito en formato mm/aa). Ambas se fijan al inicio y NO
+se reescriben cuando la realidad cambia: la estimación inicial se conserva y se
+compara con lo real, y los cambios significativos se registran en la
+Sección~\ref{sec:control_cambios}. La columna \textbf{EDT} indica qué paquetes de la
+Tabla~\ref{tab:edt} cubre cada fase, y la columna \textbf{Obj.}\ qué objetivo
+(O1--O5, Sección~\ref{sec:objetivos}) ataca: un objetivo sin fase es un objetivo
+sin plan. Ningún paquete de primer nivel de la EDT puede quedar sin fase: el 1.2
+es transversal a todas y el 5 se planifica en la tabla de la memoria.}
 
 \ph{Tabla de fases del desarrollo: rellena las filas con tus propias fases.}
 
-\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+\begin{longtable}{@{}P{0.4cm} P{2.4cm} P{1cm} P{0.9cm} P{1cm} P{1cm} P{1.6cm} P{1.6cm} P{3.9cm}@{}}
   \toprule
-  \textbf{\#} & \textbf{Fase} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \textbf{\#} & \textbf{Fase} & \textbf{EDT} & \textbf{Obj.} & \textbf{Est.} & \textbf{Real} & \textbf{Fin prev.} & \textbf{Fin real} & \textbf{Hito / Entregable} \\
   \midrule
   \endhead
-  1 & \ph{Fase 1} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 1.} \\[0.3em]
-  2 & \ph{Fase 2} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 2.} \\[0.3em]
-  3 & \ph{Fase 3} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 3.} \\[0.3em]
-  4 & \ph{Fase 4} & \ph{X h} & \ph{Y h} & \ph{Entregable de la fase 4.} \\[0.3em]
+  1 & \ph{Fase 1} & \ph{1.1} & \ph{O1} & \ph{X h} & \ph{Y h} & \ph{mm/aa} & \ph{mm/aa} & \ph{Entregable de la fase 1.} \\[0.3em]
+  2 & \ph{Fase 2} & \ph{2.1--2.2} & \ph{O2} & \ph{X h} & \ph{Y h} & \ph{mm/aa} & \ph{mm/aa} & \ph{Entregable de la fase 2.} \\[0.3em]
+  3 & \ph{Fase 3} & \ph{3}   & \ph{O3} & \ph{X h} & \ph{Y h} & \ph{mm/aa} & \ph{mm/aa} & \ph{Entregable de la fase 3.} \\[0.3em]
+  4 & \ph{Fase 4} & \ph{4}   & \ph{O4} & \ph{X h} & \ph{Y h} & \ph{mm/aa} & \ph{mm/aa} & \ph{Entregable de la fase 4.} \\[0.3em]
   \midrule
-  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  & \textbf{Total} & & & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & & & \\
   \bottomrule
-  \caption{Fases del proyecto e hitos asociados (estimadas vs.\ reales).}
+  \caption{Fases del desarrollo e hitos asociados (línea base de esfuerzo y calendario vs.\ valores reales).}
   \label{tab:fases-desarrollo}
 \end{longtable}
 
 \ph{Comenta la desviación: en qué fase se concentró, por qué se produjo y cómo se gestionó.}
 
-\ph{Tabla equivalente para la redacción de la memoria.}
+% --- Opcional: diagrama de Gantt (espacio reservado; no requiere cargar paquetes) ---
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=\textwidth]{figures/gantt}
+%   \caption{Diagrama de Gantt del proyecto (línea base de calendario).}
+%   \label{fig:gantt}
+% \end{figure}
 
-\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+\ph{Opcional: incluye un diagrama de Gantt como figura para visualizar la línea
+base de calendario y sus desviaciones; exporta el diagrama como imagen y
+descomenta el bloque anterior.}
+
+\ph{Tabla equivalente para la redacción de la memoria, agrupada en bloques de
+capítulos con hitos distintos y verificables; el desglose por capítulo individual
+es opcional. Todas las filas corresponden al paquete 5 de la EDT.}
+
+\begin{longtable}{@{}P{0.4cm} P{4.8cm} P{1cm} P{1.3cm} P{1.3cm} P{5.2cm}@{}}
   \toprule
-  \textbf{\#} & \textbf{Capítulo} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \textbf{\#} & \textbf{Capítulos} & \textbf{EDT} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
   \midrule
   \endhead
-  1 & Introducción              & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  2 & Estado del arte           & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  3 & Planificación             & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  4 & Análisis de requisitos    & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  5 & Diseño de la solución     & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  6 & Implementación            & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  7 & Pruebas y validación      & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\[0.3em]
-  8 & Conclusiones              & \ph{X h} & \ph{Y h} & \ph{Capítulo redactado y revisado.} \\
+  1 & Caps.~1--3: introducción, estado del arte y planificación & 5 & \ph{X h} & \ph{Y h} & \ph{Borrador de contexto y plan aprobado por el tutor/a.} \\[0.3em]
+  2 & Caps.~4--7: núcleo técnico (requisitos, diseño, implementación y pruebas) & 5 & \ph{X h} & \ph{Y h} & \ph{Núcleo técnico redactado y trazable con el repositorio.} \\[0.3em]
+  3 & Caps.~8--9: resultados y conclusiones & 5 & \ph{X h} & \ph{Y h} & \ph{Memoria completa lista para revisión final y depósito.} \\
   \midrule
-  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  & \textbf{Total} & & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
   \bottomrule
   \caption{Fases de redacción de la memoria (estimadas vs.\ reales).}
   \label{tab:fases-memoria}
 \end{longtable}
 
-\ph{Tabla de resumen agrupada (planificación + memoria + desarrollo + revisión).}
+\ph{Tabla de resumen global: agrega las dos tablas anteriores. Los totales DEBEN
+coincidir con los de las tablas de origen (Tablas~\ref{tab:fases-desarrollo}
+y~\ref{tab:fases-memoria}).}
 
-\begin{longtable}{@{}P{0.4cm} P{4cm} P{2cm} P{2cm} P{6cm}@{}}
+\begin{longtable}{@{}P{0.4cm} P{7.6cm} P{2cm} P{2cm}@{}}
   \toprule
-  \textbf{\#} & \textbf{Fase} & \textbf{Est.} & \textbf{Real} & \textbf{Hito / Entregable} \\
+  \textbf{\#} & \textbf{Fase} & \textbf{Est.} & \textbf{Real} \\
   \midrule
   \endhead
-  1 & Planificación & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
-  2 & Memoria       & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
-  3 & Desarrollo    & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
-  4 & Revisión      & \ph{X h} & \ph{Y h} & \ph{Hito.} \\[0.3em]
+  1 & Desarrollo (Tabla~\ref{tab:fases-desarrollo}) & \ph{X h} & \ph{Y h} \\[0.3em]
+  2 & Memoria (Tabla~\ref{tab:fases-memoria})       & \ph{X h} & \ph{Y h} \\
   \midrule
-  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} & \\
+  & \textbf{Total} & \textbf{\ph{X h}} & \textbf{\ph{Y h}} \\
   \bottomrule
   \caption{Resumen global del proyecto (estimadas vs.\ reales).}
   \label{tab:fases-conjunta}
@@ -87,26 +197,116 @@ y comentar las desviaciones.}
 
 \ph{Cierra la sección con una valoración global de la desviación temporal.}
 
+\section{Plan de comunicaciones y seguimiento}
+\label{sec:comunicaciones}
+
+\ph{Describe cómo se coordina el trabajo con el tutor o tutores y cómo queda
+constancia del avance. Tres filas bastan; lo que da valor es poder evidenciarlo
+después (fechas de reuniones clave, decisiones tomadas en ellas, issues cerradas).}
+
+\begin{longtable}{@{}P{3.8cm} P{2.2cm} P{2.8cm} P{5.4cm}@{}}
+  \toprule
+  \textbf{Actividad} & \textbf{Cadencia} & \textbf{Vía} & \textbf{Resultado esperado} \\
+  \midrule
+  \endhead
+  \ph{Reuniones con tutor/es} & \ph{Quincenal} & \ph{Presencial / videollamada} & \ph{Revisión del avance y acuerdos anotados.} \\[0.3em]
+  \ph{Mensajería asíncrona}   & \ph{Bajo demanda} & \ph{Correo / chat} & \ph{Resolución de dudas puntuales sin esperar a la reunión.} \\[0.3em]
+  \ph{Registro de avance}     & \ph{Continua} & \ph{Actas, issues, tablero} & \ph{Trazabilidad de decisiones y tareas completadas.} \\
+  \bottomrule
+  \caption{Plan de comunicaciones y seguimiento del proyecto.}
+  \label{tab:comunicaciones}
+\end{longtable}
+
+\ph{Cierra con una o dos frases sobre cómo funcionó en la práctica: número
+aproximado de reuniones mantenidas y un ejemplo concreto de decisión tomada en una
+de ellas (con fecha).}
+
 \section{Gestión de riesgos}
 \label{sec:riesgos}
 
-\ph{Identifica los riesgos principales que podían comprometer el cumplimiento de los
-objetivos o de los plazos. Para cada uno indica la probabilidad estimada,
-el impacto y el plan de mitigación.}
+\ph{Identifica los riesgos principales que podían comprometer los objetivos o los
+plazos. Para cada uno indica probabilidad, impacto y exposición (combinación de
+ambos: Alta / Media / Baja), que ordena los riesgos por prioridad de vigilancia,
+y el plan de mitigación. Regla para la exposición (matriz 3$\times$3 estándar de
+probabilidad por impacto): exposición = el nivel más bajo de los dos, subiendo un
+nivel si el impacto es Alto.}
 
-\begin{longtable}{P{4.5cm} P{2.2cm} P{2.2cm} P{5cm}}
+\begin{longtable}{@{}P{0.7cm} P{3.2cm} P{1.4cm} P{1.8cm} P{2.4cm} P{4.4cm}@{}}
   \toprule
-  \textbf{Riesgo} & \textbf{Probabilidad} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Exposición} & \textbf{Mitigación} \\
   \midrule
   \endhead
-  \ph{Riesgo 1} & \ph{Alta} & \ph{Alto} & \ph{Plan de mitigación.} \\[0.3em]
-  \ph{Riesgo 2} & \ph{Media} & \ph{Medio} & \ph{Plan de mitigación.} \\[0.3em]
-  \ph{Riesgo 3} & \ph{Baja} & \ph{Alto} & \ph{Plan de mitigación.} \\[0.3em]
-  \ph{Riesgo 4} & \ph{Media} & \ph{Bajo} & \ph{Plan de mitigación.} \\
+  R1 & \ph{Riesgo 1} & \ph{Alta}  & \ph{Alto}  & \ph{Alta}  & \ph{Plan de mitigación.} \\[0.3em]
+  R2 & \ph{Riesgo 2} & \ph{Media} & \ph{Medio} & \ph{Media} & \ph{Plan de mitigación.} \\[0.3em]
+  R3 & \ph{Riesgo 3} & \ph{Baja}  & \ph{Alto}  & \ph{Media} & \ph{Plan de mitigación.} \\[0.3em]
+  R4 & \ph{Riesgo 4} & \ph{Media} & \ph{Bajo}  & \ph{Baja}  & \ph{Plan de mitigación.} \\
   \bottomrule
-  \caption{Riesgos identificados y planes de mitigación.}
+  \caption{Riesgos identificados, exposición y planes de mitigación.}
   \label{tab:riesgos}
 \end{longtable}
+
+\subsection{Seguimiento de riesgos al cierre}
+\label{sec:seguimiento_riesgos}
+
+\ph{Un registro de riesgos solo demuestra gestión si se revisita al final. Indica,
+para cada riesgo, si llegó a materializarse, qué respuesta se aplicó realmente
+(la planificada u otra) y qué riesgo residual queda. Incluye una fila por cada
+riesgo de la Tabla~\ref{tab:riesgos}, sin excepciones.}
+
+\begin{longtable}{@{}P{0.7cm} P{2.8cm} P{5.4cm} P{5.3cm}@{}}
+  \toprule
+  \textbf{ID} & \textbf{¿Se materializó?} & \textbf{Respuesta aplicada} & \textbf{Riesgo residual} \\
+  \midrule
+  \endhead
+  R1 & \ph{Sí, en la fase 3} & \ph{Qué se hizo realmente.} & \ph{Qué queda pendiente.} \\[0.3em]
+  R2 & \ph{No} & \ph{La mitigación preventiva funcionó / no fue necesaria.} & \ph{---} \\[0.3em]
+  R3 & \ph{Parcialmente} & \ph{Respuesta aplicada.} & \ph{Riesgo residual.} \\[0.3em]
+  R4 & \ph{No} & \ph{No fue necesaria ninguna acción.} & \ph{---} \\
+  \bottomrule
+  \caption{Seguimiento de riesgos al cierre: materialización, respuesta y residuales.}
+  \label{tab:seguimiento_riesgos}
+\end{longtable}
+
+\section{Control de cambios}
+\label{sec:control_cambios}
+
+\ph{El plan es un documento vivo: registra los cambios sobre la línea base
+(alcance, plazo o enfoque) acordados durante el proyecto. Anti-burocracia: recoge
+solo los 3--6 cambios SIGNIFICATIVOS respecto a la línea base; no registres
+microajustes. Ten en cuenta que un TFG sin ningún cambio registrado resulta poco
+creíble. Si un cambio afectó al alcance, verifica que la Sección~\ref{sec:alcance}
+quedó coherente.}
+
+\begin{longtable}{@{}P{0.6cm} P{2.2cm} P{3.1cm} P{2.5cm} P{3.2cm} P{2.5cm}@{}}
+  \toprule
+  \textbf{ID} & \textbf{Fecha} & \textbf{Cambio} & \textbf{Causa} & \textbf{Impacto en la línea base} & \textbf{Aprobado por} \\
+  \midrule
+  \endhead
+  C1 & \ph{dd/mm/aa} & \ph{Alcance: qué se añadió o descartó.} & \ph{Por qué fue necesario.} & \ph{Efecto en objetivos, horas o entregables.} & \ph{Tutor/a, reunión dd/mm/aa} \\[0.3em]
+  C2 & \ph{dd/mm/aa} & \ph{Plazo: qué hito se movió.} & \ph{Causa.} & \ph{Impacto.} & \ph{Tutor/a} \\[0.3em]
+  C3 & \ph{dd/mm/aa} & \ph{Enfoque: qué decisión técnica cambió.} & \ph{Causa.} & \ph{Impacto.} & \ph{Tutor/a} \\
+  \bottomrule
+  \caption{Registro de control de cambios sobre la línea base.}
+  \label{tab:control_cambios}
+\end{longtable}
+
+\section{Plan de calidad}
+\label{sec:plan_calidad}
+
+\ph{Declara brevemente qué criterios de calidad se exigen al producto y a la
+memoria, y con qué mecanismo se verifica cada uno. No dupliques otros capítulos:
+referencia. Media página como máximo. No lo confundas con la metodología de
+validación (Sección~\ref{sec:metodologia_validacion}): aquella define CÓMO se mide
+el cumplimiento de los objetivos; el plan de calidad fija los estándares del
+proceso y del producto (código, revisiones, umbrales) con los que se trabaja a
+diario.}
+
+\begin{itemize}
+  \item \ph{\textbf{Código:} estándares de estilo y \textit{linting} automatizado; cómo se aplican se detalla en el Capítulo~\ref{chap:implementacion}.}
+  \item \ph{\textbf{Entregables:} criterio de aceptación de cada paquete de la EDT, verificado mediante las pruebas del Capítulo~\ref{chap:pruebas}.}
+  \item \ph{\textbf{Cobertura:} umbral objetivo de cobertura de pruebas (p.\,ej.\ X\,\%), medido como se describe en la Sección~\ref{sec:cobertura}.}
+  \item \ph{\textbf{Memoria:} revisión de cada capítulo por el tutor/a y verificación de referencias cruzadas y bibliografía antes de la entrega.}
+\end{itemize}
 
 \section{Presupuesto}
 \label{sec:presupuesto}
@@ -144,7 +344,9 @@ académico), el valor de mercado equivalente para una valoración realista.}
 \subsubsection*{Personal}
 
 \ph{Indica el rol, la tarifa por hora y la justificación de esa tarifa
-(convenio colectivo, mercado laboral de referencia, etc.).}
+(convenio colectivo, mercado laboral de referencia, etc.). Usa como actividades
+las fases de la Tabla~\ref{tab:fases-conjunta}; los totales de horas deben
+coincidir con ella.}
 
 \begin{longtable}{P{3.5cm} P{2cm} P{2cm} P{3cm} P{3cm}}
   \toprule
@@ -197,3 +399,38 @@ académico), el valor de mercado equivalente para una valoración realista.}
 
 \ph{Cierra la sección comentando el coste real frente al valor de mercado
 y la influencia del entorno académico (licencias educativas, equipos cedidos\dots).}
+
+\section{Cierre del proyecto y lecciones aprendidas}
+\label{sec:cierre}
+
+\ph{Cierra formalmente el plan. Primero, verifica el proyecto contra la EDT
+(Tabla~\ref{tab:edt}): todo paquete de trabajo debe estar entregado o tener un
+cambio registrado en la Sección~\ref{sec:control_cambios} que lo descarte. Después,
+resume en una frase la desviación global (Tabla~\ref{tab:fases-conjunta}) y extrae
+3--5 lecciones aprendidas honestas: las más valiosas son las que admiten un error
+y explican qué se haría distinto.}
+
+\begin{longtable}{@{}P{6.5cm} P{7.7cm}@{}}
+  \toprule
+  \textbf{Lección} & \textbf{Qué se haría distinto} \\
+  \midrule
+  \endhead
+  \ph{P.\,ej., se infraestimó la fase de pruebas un 40\,\%.} & \ph{Reservar un margen explícito para imprevistos en la estimación.} \\[0.3em]
+  \ph{P.\,ej., la integración continua desde el inicio evitó regresiones tardías.} & \ph{Mantenerla; automatizar también el despliegue.} \\[0.3em]
+  \ph{P.\,ej., acumular la redacción de la memoria al final generó presión.} & \ph{Redactar cada capítulo al cerrar su fase.} \\
+  \bottomrule
+  \caption{Lecciones aprendidas al cierre del proyecto.}
+  \label{tab:lecciones}
+\end{longtable}
+
+\ph{Las conclusiones (Capítulo~\ref{chap:conclusiones}) retomarán esta reflexión
+de forma resumida: no dupliques aquí lo que dirás allí, ni allí lo que ya queda
+registrado aquí.}
+
+% --- Transición al siguiente capítulo ---
+\ph{Cierra el capítulo con un párrafo puente de 2--4 líneas: qué queda
+establecido aquí y qué pregunta abre el capítulo siguiente. Por ejemplo:
+«Con el plan establecido (qué se hará, cuándo y con qué control), el siguiente
+paso es precisar QUÉ debe hacer exactamente el sistema: el
+Capítulo~\ref{chap:requisitos} traduce los objetivos en un catálogo de requisitos
+verificables».}

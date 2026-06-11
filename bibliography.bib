@@ -1,14 +1,86 @@
 % ----------------------------------------------------------------------
 % Bibliografía del TFG
 % ----------------------------------------------------------------------
-% Añade aquí tus referencias en formato BibTeX. Ejemplo:
+% Criterios de calidad (la revisión bibliográfica puntúa en la rúbrica):
+%   - Cantidad orientativa: 20--40 referencias para un TFG.
+%   - Calidad: la mayoría deben ser fuentes revisadas por pares
+%     (@article, @inproceedings). Webs y blogs son complemento, no base.
+%   - Actualidad: procura que más de la mitad sean de los últimos 5 años
+%     (las fuentes seminales antiguas son la excepción justificada).
+%   - Diversidad: combina artículos, congresos, libros, documentación
+%     oficial, software y otros TFG/TFM o tesis.
+%   - Incluye SIEMPRE el campo doi cuando exista. En entradas @online el
+%     campo urldate (fecha de consulta) es OBLIGATORIO.
 %
-% @book{ejemplo2026,
-%   author    = {Apellido, Nombre},
-%   title     = {Título del libro},
-%   year      = {2026},
-%   publisher = {Editorial}
-% }
+% Cómo obtener el BibTeX: en Google Scholar pulsa «Citar > BibTeX»; si la
+% fuente tiene DOI, en https://doi.org puedes exportar la cita en formato
+% BibTeX. Revisa siempre que los campos estén completos y sin abreviar.
 %
-% Para citar en el texto: \cite{ejemplo2026}.
+% Las entradas siguientes son EJEMPLOS con datos ficticios: sirven de
+% modelo de campos para cada tipo de fuente. Con biblatex, las entradas
+% NO citadas no aparecen en el PDF, así que puedes dejarlas aquí mientras
+% escribes y borrarlas al terminar.
 % ----------------------------------------------------------------------
+
+% Artículo de revista (fuente ideal: revisada por pares; doi si existe)
+@article{apellido2024articulo,
+  author  = {Apellido, Nombre and Apellido, Nombre2},
+  title   = {Título de ejemplo de un artículo de revista},
+  journal = {Nombre de la revista},
+  year    = {2024},
+  volume  = {12},
+  number  = {3},
+  pages   = {45--67},
+  doi     = {10.1000/ejemplo.2024}
+}
+
+% Ponencia en congreso (muy habitual en informática)
+@inproceedings{apellido2023congreso,
+  author    = {Apellido, Nombre},
+  title     = {Título de ejemplo de una ponencia},
+  booktitle = {Actas del Congreso de Ejemplo (SIGLAS 2023)},
+  year      = {2023},
+  publisher = {Editorial del congreso},
+  pages     = {1--10},
+  doi       = {10.1000/ejemplo.2023}
+}
+
+% Libro (fuentes seminales o de referencia)
+@book{apellido2021libro,
+  author    = {Apellido, Nombre},
+  title     = {Título de ejemplo de un libro},
+  year      = {2021},
+  edition   = {2},
+  publisher = {Editorial},
+  isbn      = {978-0-00-000000-0}
+}
+
+% Recurso web / documentación oficial (urldate OBLIGATORIO)
+@online{organizacion2025recurso,
+  author  = {{Nombre de la Organización}},
+  title   = {Título de la página o documentación de ejemplo},
+  year    = {2025},
+  url     = {https://www.ejemplo.org/documentacion},
+  urldate = {2026-06-11}
+}
+
+% Software o repositorio de código (con url y versión)
+@software{autor2024software,
+  author  = {Apellido, Nombre},
+  title   = {Nombre del software de ejemplo},
+  version = {2.1},
+  year    = {2024},
+  url     = {https://github.com/usuario/repositorio},
+  urldate = {2026-06-11}
+}
+
+% Otro TFG / TFM / tesis (p. ej. depositado en idUS)
+@thesis{apellido2022tfm,
+  author      = {Apellido, Nombre},
+  title       = {Título de ejemplo de un trabajo académico},
+  type        = {Trabajo Fin de Máster},
+  institution = {Universidad de Sevilla},
+  year        = {2022},
+  url         = {https://idus.us.es/handle/ejemplo},
+  urldate     = {2026-06-11}
+}

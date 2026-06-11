@@ -5,7 +5,11 @@
 requisitos. Las secciones siguen el orden clásico de la \emph{pirámide de
 pruebas}: de la base (muchas pruebas, rápidas y baratas) a la cumbre (pocas,
 lentas y caras). En la base están las pruebas unitarias, en el medio las
-de integración y en la cima las de extremo a extremo / aceptación.}
+de integración y en la cima las de extremo a extremo / aceptación.
+Delimita el alcance desde el principio: este capítulo responde a la pregunta
+de la \emph{verificación} («¿hemos construido bien el sistema?»); la
+\emph{evaluación} de los resultados frente a los objetivos del trabajo y su
+discusión se realiza en el Capítulo~\ref{chap:resultados}.}
 
 \section{Estrategia de pruebas}
 \label{sec:estrategia_pruebas}
@@ -121,3 +125,43 @@ y, si procede, los umbrales mínimos exigidos en CI.}
 
 \ph{Comenta también qué se excluye de la medición
 (ficheros generados, plantillas, código de migración, dependencias externas\dots).}
+
+\ph{Resume la suite completa en la Tabla~\ref{tab:resumen_suite}: el tribunal
+debe poder ver de un vistazo cuántas pruebas hay, de qué tipo y con qué
+resultado.}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}P{4.5cm} P{3cm} P{3cm} P{3cm}@{}}
+\toprule
+\textbf{Nivel} & \textbf{N.º de pruebas} & \textbf{Resultado} & \textbf{Cobertura} \\
+\midrule
+Unitarias         & \ph{N} & \ph{N/N pasan} & \ph{X\,\%} \\
+Integración       & \ph{N} & \ph{N/N pasan} & \ph{X\,\%} \\
+Extremo a extremo & \ph{N} & \ph{N/N pasan} & \ph{---} \\
+\midrule
+\textbf{Total}    & \textbf{\ph{N}} & \textbf{\ph{N/N pasan}} & \textbf{\ph{X\,\%}} \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de la suite de pruebas por nivel de la pirámide.}
+\label{tab:resumen_suite}
+\end{table}
+
+\ph{No te limites a enumerar cifras: interprétalas. Una cobertura del X\,\%
+no dice nada por sí sola. Indica qué módulos quedan menos cubiertos y por qué
+es asumible (código trivial, generado, de difícil automatización\dots), y qué
+te dice la distribución de pruebas por nivel sobre la fiabilidad de la suite
+(¿la base de la pirámide es realmente la más ancha?).}
+
+\ph{Cierra el eslabón con los objetivos: indica qué criterios de la
+Tabla~\ref{tab:criterios-exito} quedan verificados por esta suite,
+apoyándote en la matriz de la Tabla~\ref{tab:trazabilidad_rf_pruebas}.}
+
+% --- Transición al siguiente capítulo ---
+\ph{Cierra el capítulo con un párrafo puente de 2--4 líneas: qué queda
+establecido aquí y qué pregunta abre el capítulo siguiente. Por ejemplo:
+«Verificado que el sistema está bien construido y que cumple los requisitos
+especificados, queda la pregunta de fondo: ¿resuelve el problema planteado y
+en qué medida? El Capítulo~\ref{chap:resultados} evalúa los resultados
+obtenidos frente a los criterios de éxito y los discute críticamente».}

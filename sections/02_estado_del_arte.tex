@@ -10,11 +10,22 @@ las soluciones existentes y dónde se sitúa la suya.}
 conceptuales del TFG, más una sección final de \emph{Trabajos relacionados}
 donde se comparan soluciones existentes con la propia.}
 
+\ph{Regla de oro de citación: toda definición, dato o afirmación que no sea
+tuya lleva su cita con \textbackslash cite junto a la propia afirmación, no
+acumulada al final del párrafo. Prefiere la fuente primaria (el artículo o
+libro que introdujo el concepto) y combínala con publicaciones recientes
+(últimos cinco años) y con tipos de fuente diversos (artículos, congresos,
+libros, documentación oficial, software). Patrón de ejemplo: «El concepto~X
+fue introducido por Apellido et al.~\cite{apellido2024articulo} y desde
+entonces se ha aplicado a \dots». Consulta \texttt{bibliography.bib}: incluye
+un modelo de cada tipo de entrada.}
+
 \section{\ph{Concepto / paradigma principal}}
 \label{sec:concepto1}
 
 \ph{Primer pilar teórico del trabajo. Por ejemplo: el paradigma, la metodología
-o el tipo de sistema sobre el que se construye la solución.}
+o el tipo de sistema sobre el que se construye la solución, apoyado en su
+fuente primaria, típicamente un libro de referencia~\cite{apellido2021libro}.}
 
 \ph{Cubre aquí:}
 \begin{itemize}
@@ -39,7 +50,8 @@ su notación, su clasificación o sus etapas.}
 \label{subsec:herramientas1}
 
 \ph{Si procede, repasa las herramientas, librerías o frameworks asociados al concepto
-y comenta brevemente cuáles son relevantes para el trabajo y por qué.}
+y comenta brevemente cuáles son relevantes para el trabajo y por qué. Cita cada
+herramienta con su entrada de software~\cite{autor2024software}.}
 
 \section{\ph{Tecnología / lenguaje / estándar clave}}
 \label{sec:concepto2}
@@ -69,7 +81,8 @@ y, si la implementación del TFG decide no usar alguna, explica por qué.}
 
 \ph{Tercer pilar: el dominio físico, funcional o de negocio sobre el que se aplica
 la solución. Aporta el conocimiento de dominio mínimo para entender las decisiones
-que se tomarán en diseño e implementación.}
+que se tomarán en diseño e implementación, citando los recursos oficiales del
+dominio cuando existan~\cite{organizacion2025recurso}.}
 
 \subsection{\ph{Aspecto del dominio 1}}
 \label{subsec:dominio_1}
@@ -94,6 +107,13 @@ En caso contrario, elimina esta sección.}
 \ph{Sección clave del estado del arte. Aquí se comparan soluciones, proyectos
 o publicaciones que abordan problemas similares al que resuelve el TFG.}
 
+\ph{Empieza con un párrafo que sustente la exhaustividad de la búsqueda:
+indica qué bases de datos consultaste (Scopus, Web of Science, Google Scholar,
+IEEE Xplore\dots), con qué palabras clave y qué criterios de inclusión y
+exclusión aplicaste (p.\,ej.\ publicaciones de los últimos cinco años,
+revisadas por pares, con herramienta disponible públicamente). Un párrafo
+basta; no hace falta una revisión sistemática formal.}
+
 \ph{Plantilla de redacción:}
 
 \ph{En el ámbito de \dots, destacan los trabajos de \dots, que abordan \dots.
@@ -102,5 +122,45 @@ Sin embargo, ninguno cubre \dots, que es precisamente lo que motiva este trabajo
 \ph{En el ámbito de \dots, los enfoques existentes se centran en \dots.
 La diferencia con la propuesta de este TFG es \dots.}
 
-\ph{Cierra la sección con una frase que enuncie la contribución diferencial del TFG
-respecto al estado del arte.}
+\subsection{Comparativa de trabajos relacionados}
+\label{subsec:comparativa_relacionados}
+
+\ph{Resume la comparación en una tabla: una fila por trabajo (citado con
+\textbackslash cite) y 3--4 criterios como columnas, derivados del problema
+que resuelve tu TFG (no genéricos). La última fila es tu propuesta: así el
+lector ve de un vistazo el hueco que cubre el trabajo.}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{P{6cm}ccc}
+    \toprule
+    \textbf{Trabajo} & \ph{Criterio 1} & \ph{Criterio 2} & \ph{Criterio 3} \\
+    \midrule
+    \ph{Trabajo A~\cite{apellido2024articulo}} & \ph{Sí} & \ph{Parcial} & \ph{No} \\
+    \ph{Trabajo B~\cite{apellido2023congreso}} & \ph{Parcial} & \ph{Sí} & \ph{No} \\
+    \ph{Trabajo C~\cite{apellido2022tfm}} & \ph{No} & \ph{Parcial} & \ph{Sí} \\
+    \midrule
+    \textbf{Este TFG} & \ph{Sí} & \ph{Sí} & \ph{Sí} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparativa de trabajos relacionados.}
+  \label{tab:comparativa_relacionados}
+\end{table}
+
+\ph{Leyenda: Sí = lo cubre completamente; Parcial = lo cubre con limitaciones;
+No = no lo cubre. Comenta la tabla de forma crítica, no descriptiva: justifica
+cada «Parcial» y cada «No», identifica el hueco que dejan los trabajos
+existentes y cierra con una frase que enuncie la contribución diferencial de
+este TFG. Sé honesto: si tu propuesta también tiene algún «Parcial»,
+reconocerlo refuerza la credibilidad del análisis. Los criterios (columnas)
+elegidos deberán poder respaldarse con evidencia propia en el
+Capítulo~\ref{chap:resultados}. El Capítulo~\ref{chap:resultados} retomará
+esta tabla para contrastarla con los resultados obtenidos.}
+
+% --- Transición al siguiente capítulo ---
+\ph{Cierra el capítulo con un párrafo puente de 2--4 líneas: qué queda
+establecido aquí y qué pregunta abre el capítulo siguiente. Por ejemplo:
+«Identificado el hueco que dejan los trabajos existentes, el
+Capítulo~\ref{chap:planificacion} describe cómo se ha organizado el proyecto
+para construir la solución que lo cubre: metodología, fases, recursos y
+gestión de riesgos».}

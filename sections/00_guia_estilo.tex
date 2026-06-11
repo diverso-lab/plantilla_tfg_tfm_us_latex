@@ -1,0 +1,99 @@
+% =====================================================================
+% GUÍA DE ESTILO Y REVISIÓN
+% Este capítulo solo se imprime en modo borrador (main.tex lo incluye
+% dentro de \ifdraft). Desaparece automáticamente al pasar a \draftfalse,
+% por lo que NO debes borrarlo ni rellenarlo: es una guía para ti.
+% No aparece en el índice (no lleva \addcontentsline).
+% =====================================================================
+\chapter*{Guía de estilo y revisión (no aparece en la versión final)}
+\markboth{Guía de estilo y revisión (no aparece en la versión final)}{}
+
+Este capítulo es una guía para ti: solo se imprime en modo borrador y
+desaparece de forma automática al compilar con \texttt{\textbackslash
+draftfalse}. Léelo antes de empezar a redactar y vuelve a él durante la
+revisión final. Una memoria con buen contenido pero mal escrita pierde
+puntos fáciles; las convenciones siguientes evitan los errores más
+frecuentes.
+
+\section*{Registro y voz}
+
+Elige una voz y mantenla en toda la memoria: la forma impersonal o pasiva
+refleja (\enquote{se ha desarrollado}, \enquote{se propone}) o la primera
+persona del plural (\enquote{hemos desarrollado}). Ambas son aceptables;
+mezclarlas no. La única excepción son los agradecimientos, que van en
+primera persona del singular.
+
+Usa el tiempo pasado (pretérito perfecto) para el trabajo realizado
+(\enquote{se ha implementado un módulo de autenticación}) y el presente
+para describir lo que el sistema es o hace (\enquote{el sistema valida
+cada petición}). Reserva el futuro y el condicional para el trabajo
+futuro. Evita los coloquialismos y muletillas (\enquote{un montón},
+\enquote{básicamente}, \enquote{a día de hoy}) y no te dirijas al lector
+en segunda persona.
+
+\section*{Vocabulario técnico}
+
+Un concepto, un término: si llamas \enquote{usuario} a quien usa la
+aplicación, no alternes con \enquote{actor} o \enquote{cliente} para
+referirte a lo mismo. Haz una pasada final de búsqueda para comprobar la
+consistencia. Los anglicismos sin traducción asentada van en cursiva con
+\texttt{\textbackslash textit}: \textit{framework}, \textit{endpoint},
+\textit{backend}. Si existe un término español habitual (prueba,
+despliegue, biblioteca, servidor), úsalo, y úsalo siempre igual.
+
+Los comandos, el código, las rutas y los identificadores van en
+\texttt{\textbackslash texttt}: \texttt{main.tex}, \texttt{POST
+/api/login}, \texttt{docker compose up}. Todo acrónimo se desarrolla en
+su primera mención en el texto ---\enquote{Ingeniería del Software Basada
+en Evidencias (EBSE)}--- y a partir de entonces se usa solo la sigla;
+además, debe quedar recogido en la lista de acrónimos.
+
+\section*{Prosa antes que viñetas}
+
+Las listas-guía de esta plantilla son andamiaje: indican qué contenido
+debe aparecer, no cómo debe presentarse. El texto final debe ser prosa
+argumentada, con párrafos conectados mediante conectores (\enquote{Sin
+embargo}, \enquote{Por tanto}, \enquote{En consecuencia}). Una sección no
+puede ser solo una sucesión de viñetas; reserva las listas para
+enumeraciones reales (requisitos, objetivos, pasos de un procedimiento).
+Las citas textuales van siempre con \texttt{\textbackslash
+enquote\{\dots\}} (el paquete \texttt{csquotes} ya está cargado), nunca
+con comillas tecleadas a mano.
+
+\section*{Figuras y tablas}
+
+Toda figura y toda tabla se referencia desde el texto \textbf{antes} de
+aparecer (\enquote{como muestra la Tabla~3.1\dots}, usando
+\texttt{Tabla\textasciitilde\textbackslash ref\{\dots\}}) y se interpreta:
+no basta con insertarla, hay que decir al lector qué debe ver en ella.
+Los pies deben ser autoexplicativos, de modo que se entiendan sin leer el
+cuerpo del texto (\enquote{Comparación del tiempo medio de respuesta (ms)
+de las tres alternativas evaluadas} en lugar de \enquote{Resultados}).
+
+\section*{Checklist de revisión final}
+
+\begin{itemize}[itemsep=0.3em]
+  \item[$\square$] Corrector ortográfico y gramatical pasado a todo el
+    documento (el integrado en Overleaf y, como complemento, LanguageTool
+    o similar).
+  \item[$\square$] Lectura completa del PDF de principio a fin, mejor
+    impresa o en voz alta: delata las frases que no fluyen.
+  \item[$\square$] Terminología consistente: el mismo término para el
+    mismo concepto en toda la memoria; anglicismos en cursiva; código y
+    comandos en \texttt{\textbackslash texttt}.
+  \item[$\square$] Acrónimos desarrollados en su primera mención y
+    recogidos en la lista de acrónimos (sin entradas sobrantes).
+  \item[$\square$] Compilado con \texttt{\textbackslash draftfalse} y
+    revisado el log de compilación: ningún aviso \enquote{Placeholder sin
+    rellenar} pendiente.
+  \item[$\square$] Ningún título de sección ni caption de tabla/figura
+    sigue siendo un placeholder (en modo final dejarían entradas vacías
+    en el índice o pies vacíos).
+  \item[$\square$] Toda entrada de la bibliografía se cita en el texto y
+    toda afirmación tomada de una fuente externa lleva su cita.
+  \item[$\square$] Todas las figuras y tablas se referencian desde el
+    texto y tienen pie autoexplicativo.
+  \item[$\square$] Metadatos del PDF completos: bloque \enquote{DATOS DEL
+    TRABAJO} de \texttt{main.tex} relleno (título, autor/a, titulación,
+    tutores, ciudad y fecha).
+\end{itemize}

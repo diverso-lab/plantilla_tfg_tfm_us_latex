@@ -67,8 +67,42 @@
 % --- Colores ---
 \usepackage{xcolor}
 \definecolor{codegray}{rgb}{0.95,0.95,0.95}
-\definecolor{linkblue}{rgb}{0.1,0.2,0.6}
 \definecolor{placeholder}{rgb}{0.45,0.45,0.45}
+
+% --- Modo borrador / final ---
+% Cambia \drafttrue por \draftfalse antes de la entrega final.
+% En modo borrador los placeholders \ph{...} se imprimen en gris cursiva.
+% En modo final desaparecen del PDF, pero cada \ph{...} olvidado emite un
+% aviso "Placeholder sin rellenar" en el log de compilación: revísalo antes
+% de entregar. Atención especial a los títulos de sección o captions de
+% tablas/figuras que son placeholders (p. ej. \section{\ph{...}} o
+% \caption{\ph{...}}): si no los sustituyes por texto real, en modo final
+% quedan entradas vacías en el índice o pies de tabla/figura vacíos.
+\newif\ifdraft
+\drafttrue
+
+% --- Comando de placeholder ---
+% \ph{...} resalta texto que debe ser rellenado por el autor.
+\ifdraft
+  \DeclareRobustCommand{\ph}[1]{\textcolor{placeholder}{\textit{[#1]}}}
+\else
+  \DeclareRobustCommand{\ph}[1]{\GenericWarning{}{Placeholder sin rellenar: \detokenize{#1}}}
+\fi
+
+% =====================================================================
+% DATOS DEL TRABAJO
+% Rellena estos datos UNA sola vez: se usan en la portada, en la
+% declaración de autoría y en los metadatos del PDF.
+% =====================================================================
+\newcommand{\memTipoTrabajo}{Trabajo Fin de Grado} % o «Trabajo Fin de Máster»
+\newcommand{\memTitulacion}{\ph{Titulación: Grado / Máster en \dots}}
+\newcommand{\memTitulo}{\ph{Título del Trabajo Fin de Grado}}
+\newcommand{\memAutor}{\ph{Nombre y apellidos del autor/a}}
+\newcommand{\memTutorUno}{\ph{Nombre y apellidos del tutor/a 1}}
+\newcommand{\memTutorDos}{\ph{Nombre y apellidos del tutor/a 2 (opcional)}}
+\newcommand{\memDepartamento}{Lenguajes y Sistemas Informáticos}
+\newcommand{\memCiudad}{\ph{Ciudad}}
+\newcommand{\memFecha}{\ph{mes año}}
 
 % --- Código fuente ---
 \usepackage{listings}
@@ -116,59 +150,65 @@
   numbers=left,numbersep=6pt,stepnumber=1,%
   frame=single,framesep=4pt,fontsize=\small,xleftmargin=12pt%
 }
-\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\renewcommand{\lstlistingname}{Código}
 
 % --- Matemáticas ---
 \usepackage{amsmath}
 \usepackage{amssymb}
 
 % --- Bibliografía ---
-% La plantilla deja la bibliografía configurada y enlazada, pero sin entradas.
-% Para añadir referencias, edita bibliography.bib y ejecuta biber/biblatex.
-\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex}
+% Estilo numérico por orden de cita (convención IEEE, estándar en memorias
+% de ingeniería): las citas aparecen como [1], [2,3] o [1-4] en el texto.
+% Añade tus referencias en bibliography.bib (incluye ejemplos de cada tipo
+% de entrada) y compila con biber.
+\usepackage[
+  backend=biber,
+  style=numeric-comp,
+  sorting=none,
+  maxbibnames=6,
+  giveninits=true
+]{biblatex}
 \addbibresource{bibliography.bib}
-\DeclareCiteCommand{\cite}[\mkbibsuperscript]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}\usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
-\renewcommand{\mkbibsuperscript}[1]{\textsuperscript{[#1]}}
 
 % --- Hipervínculos ---
+% Los metadatos del PDF se toman de las macros del bloque DATOS DEL TRABAJO.
 \usepackage[
   colorlinks=true,
   linkcolor=black,
   citecolor=black,
   urlcolor=black,
-  pdftitle={Plantilla TFG},
-  pdfauthor={Nombre del Autor},
-  pdfsubject={Trabajo de Fin de Grado}
+  pdftitle={\memTitulo},
+  pdfauthor={\memAutor},
+  pdfsubject={\memTipoTrabajo},
+  pdflang={es-ES},
+  pdfdisplaydoctitle=true
 ]{hyperref}
 \usepackage{xurl}
+% En los metadatos y marcadores del PDF, \ph{...} se sustituye por su
+% contenido literal (evita avisos «Token not allowed» de hyperref).
+\pdfstringdefDisableCommands{\renewcommand{\ph}[1]{#1}}
 
 % --- Otros ---
 \usepackage{csquotes}
 \usepackage{enumitem}
 \usepackage{pdfpages}
 
-% --- Modo borrador / final ---
-% Cambia \drafttrue por \draftfalse antes de la entrega final
-% para ocultar todos los placeholders \ph{...}.
-\newif\ifdraft
-\drafttrue
-
-% --- Comando de placeholder ---
-% \ph{...} resalta texto que debe ser rellenado por el autor.
-% En modo final (\draftfalse) el contenido se elimina por completo.
-\ifdraft
-  \newcommand{\ph}[1]{\textcolor{placeholder}{\textit{[#1]}}}
-\else
-  \newcommand{\ph}[1]{}
-\fi
-
 % --- Profundidad del índice  ---
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
+
+% --- Acabado tipográfico ---
+% Evita líneas viudas y huérfanas (mejora el acabado percibido del PDF).
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Página en blanco intercalada entre bloques preliminares.
+\newcommand{\paginaenblanco}{%
+  \newpage\thispagestyle{empty}\mbox{}\newpage}
 
 % ---
 \begin{document}
@@ -183,55 +223,38 @@
 % --- Preliminares---
 \pagestyle{fancy}
 \pagenumbering{roman}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 \include{sections/00_declaracion}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 \include{sections/00_agradecimientos}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 \include{sections/00_resumen}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 
 % --- Índice general ---
 \tableofcontents
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 
 % --- Índice de tablas ---
 \listoftables
 \addcontentsline{toc}{chapter}{Índice de tablas}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 
 % --- Índice de figuras ---
 \listoffigures
 \addcontentsline{toc}{chapter}{Índice de figuras}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
 
 % --- Lista de acrónimos ---
 \include{sections/00_acronimos}
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+\paginaenblanco{}
+
+% --- Guía de estilo y revisión (solo visible en modo borrador) ---
+% Desaparece automáticamente del PDF al pasar a \draftfalse.
+\ifdraft
+  \include{sections/00_guia_estilo}
+  \paginaenblanco{}
+\fi
 
 % --- Cuerpo ---
 \pagenumbering{arabic}
@@ -242,7 +265,8 @@
 \include{sections/05_diseño}
 \include{sections/06_implementación}
 \include{sections/07_pruebas}
-\include{sections/08_conclusiones}
+\include{sections/08_resultados}
+\include{sections/09_conclusiones}
 
 % --- Bibliografía (vacía pero enlazada). Añade entradas en bibliography.bib. ---
 \printbibliography[heading=bibintoc, title={Bibliografía}]

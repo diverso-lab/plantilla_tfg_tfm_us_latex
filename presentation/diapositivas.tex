@@ -1,0 +1,337 @@
+% =====================================================================
+%  Diapositivas para la defensa del TFG/TFM (esqueleto Beamer)
+%  Proporcionada por Diverso Lab (Universidad de Sevilla).
+%  Licencia: CC BY 4.0 (ver LICENSE en la raíz del repositorio).
+%
+%  PROYECTO INDEPENDIENTE de la memoria: NO se incluye desde main.tex.
+%  Compílalo desde este directorio con
+%      pdflatex diapositivas.tex
+%  o sube la carpeta presentation/ como un proyecto NUEVO a Overleaf.
+%
+%  El guion y el minutaje detallado de la defensa (~15 min) están en
+%  docs/GUIA_DEFENSA.md. Cada frame lleva su tiempo orientativo como
+%  comentario. Regla práctica: ~1 diapositiva por minuto y llegar al
+%  ensayo final con 1 minuto de margen POR DEBAJO del tiempo límite.
+% =====================================================================
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% --- Codificación y lengua (compatible con pdfLaTeX) ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% es-noshorthands evita conflictos conocidos de babel-spanish con Beamer.
+\usepackage[spanish, es-noshorthands]{babel}
+
+% --- Tablas y gráficos ---
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+% --- Tema sobrio: default + colores personalizados ---
+% Mantén la sobriedad: fondo claro, un color principal y gris. Si tu
+% escuela tiene color corporativo, cámbialo aquí (un único sitio).
+\usetheme{default}
+\definecolor{colorprincipal}{RGB}{0,51,102}   % azul oscuro institucional
+\definecolor{grisplaceholder}{RGB}{115,115,115}
+\setbeamercolor{structure}{fg=colorprincipal}
+\setbeamercolor{frametitle}{fg=colorprincipal}
+\setbeamercolor{title}{fg=colorprincipal}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{title}{series=\bfseries,size=\Large}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% Sin barra de navegación; número de diapositiva visible.
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+% Línea fina bajo el título de cada frame (aspecto limpio y profesional).
+\setbeamertemplate{frametitle}{%
+  \vskip1.2ex
+  \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle
+  \par\vskip0.6ex
+  {\color{colorprincipal}\hrule height 0.8pt}%
+  \vskip1.2ex
+}
+
+% --- Placeholder local (misma convención \ph{...} que la memoria) ---
+% En modo presentación NO hay modo borrador/final: sustituye todos los
+% \ph antes de la defensa. Búscalos con Ctrl+F "\ph{".
+% (\texorpdfstring evita avisos de hyperref cuando \ph aparece en la
+% portada o en títulos que acaban en los metadatos del PDF.)
+\newcommand{\ph}[1]{\texorpdfstring{\textcolor{grisplaceholder}{\textit{[#1]}}}{[#1]}}
+
+% --- Numeración: que los frames de backup no inflen el total ---
+% \backupbegin congela el contador antes del apéndice y \backupend lo
+% restaura, de modo que «N / total» refleja solo la parte presentada.
+\newcounter{framefinal}
+\newcommand{\backupbegin}{\setcounter{framefinal}{\value{framenumber}}}
+\newcommand{\backupend}{\setcounter{framenumber}{\value{framefinal}}}
+
+% --- Datos de portada ---
+% Logo: este proyecto NO depende de los ficheros de la memoria. Copia el
+% logo desde la raíz del repositorio con
+%     cp ../figures/img/logo_uni.png .
+% (o súbelo a Overleaf junto a este .tex) y descomenta la línea \titlegraphic.
+% \titlegraphic{\includegraphics[height=1.2cm]{logo_uni}}
+\title{\ph{Título del trabajo, idéntico al de la memoria}}
+\subtitle{\ph{Trabajo Fin de Grado / Trabajo Fin de Máster}}
+\author{\ph{Nombre del autor o autora}%
+  \texorpdfstring{\\[1ex]{\small Tutores: \ph{Tutor/a 1}
+    \,\textperiodcentered\, \ph{Tutor/a 2 (si procede)}}}%
+  {. Tutores: [Tutor/a 1], [Tutor/a 2 (si procede)]}}
+\institute{\ph{Titulación} --- Universidad de Sevilla}
+\date{\ph{Fecha de la defensa}}
+
+\begin{document}
+
+% =====================================================================
+% PORTADA — 0:30
+% Memoriza tu primera frase. Di tu nombre, el título y a qué problema
+% responde el trabajo en una sola oración.
+% =====================================================================
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% =====================================================================
+% ÍNDICE — 0:30 (opcional)
+% No lo leas: una frase («Veremos el problema, la solución y los
+% resultados») y avanza. El tribunal solo necesita el mapa. Es la
+% primera diapositiva que cae si vas justo de tiempo: sin ella el
+% total baja de ~15:00 a ~14:30.
+% =====================================================================
+\begin{frame}{Índice}
+  \tableofcontents
+\end{frame}
+
+% =====================================================================
+\section{Contexto y problema}
+% =====================================================================
+
+% --- CONTEXTO Y MOTIVACIÓN — 1:00 — sale de las secciones «Contexto»
+% y «Motivación» del Capítulo 1 de la memoria. Una idea por diapositiva
+% y máximo ~20 palabras de texto. Mejor una figura potente que tres
+% párrafos.
+\begin{frame}{Contexto y motivación}
+  % (Espacio reservado para una figura que sitúe el dominio del problema)
+  \ph{Sitúa el dominio en 2--3 ideas: quién sufre el problema, por qué
+  importa ahora y qué coste tiene no resolverlo. Apóyate en una figura,
+  no en texto corrido.}
+\end{frame}
+
+% --- EL PROBLEMA — 1:00 — sale de la sección «Problema» del
+% Capítulo 1. Si vas justo de tiempo, fusiona este frame con el
+% anterior en una sola diapositiva.
+\begin{frame}{El problema}
+  \ph{Enuncia el problema concreto en una frase destacada y, debajo,
+  2--3 evidencias o carencias de las soluciones actuales.}
+\end{frame}
+
+% =====================================================================
+\section{Objetivos}
+% =====================================================================
+
+% --- OBJETIVOS — 1:00 — copia LITERAL los objetivos O1..On del
+% Capítulo 1: los retomarás en la diapositiva de conclusiones y el
+% tribunal comprobará que coinciden con la memoria.
+\begin{frame}{Objetivos}
+  \begin{enumerate}
+    \item \ph{O1: objetivo literal de la memoria}
+    \item \ph{O2: \dots}
+    \item \ph{O3: \dots}
+  \end{enumerate}
+\end{frame}
+
+% =====================================================================
+\section{Estado del arte}
+% =====================================================================
+
+% --- ESTADO DEL ARTE BREVE — 1:00 — sale del Capítulo 2: versión
+% REDUCIDA de la tabla comparativa de trabajos relacionados (3--4
+% filas y 3--4 columnas como máximo; la completa va en el backup).
+% Cierra señalando el hueco que ningún trabajo cubre y el tuyo sí: es
+% la justificación de todo lo que viene después.
+\begin{frame}{Estado del arte breve}
+  \begin{center}
+    \begin{tabular}{lccc}
+      \toprule
+      \textbf{Trabajo} & \ph{Criterio 1} & \ph{Criterio 2} & \ph{Criterio 3} \\
+      \midrule
+      \ph{Trabajo relacionado 1} & \ph{sí/no} & \ph{sí/no} & \ph{sí/no} \\
+      \ph{Trabajo relacionado 2} & \ph{sí/no} & \ph{sí/no} & \ph{sí/no} \\
+      \textbf{Este trabajo} & \ph{sí} & \ph{sí} & \ph{sí} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \ph{Una frase con el hueco que cubre tu trabajo y ninguno de los
+  anteriores.}
+\end{frame}
+
+% =====================================================================
+\section{Solución}
+% =====================================================================
+
+% --- ARQUITECTURA — 1:30 — sale de los Capítulos 4 y 5. Reutiliza el
+% diagrama de arquitectura de la memoria (mismo estilo visual =
+% coherencia profesional). Si necesitas dos diapositivas (visión
+% general + detalle), duplica este frame; el detalle fino va mejor en
+% el backup del final.
+\begin{frame}{Solución propuesta: arquitectura}
+  % (Espacio reservado para el diagrama de arquitectura de la memoria)
+  \ph{Diagrama de arquitectura + 2--3 decisiones de diseño clave con su
+  porqué (una línea cada una).}
+\end{frame}
+
+% --- IMPLEMENTACIÓN DESTACADA — 1:30 — sale del Capítulo 6. NO pegues
+% pantallazos de código ilegibles: elige UN reto técnico interesante y
+% cuenta el problema, las alternativas y la solución adoptada.
+\begin{frame}{Implementación: aspecto destacado}
+  \ph{El reto técnico más interesante del trabajo: qué lo hacía
+  difícil, qué alternativas valoraste (Capítulo 6) y cómo lo
+  resolviste. Un fragmento de código solo si es corto y legible.}
+\end{frame}
+
+% =====================================================================
+\section{Demostración}
+% =====================================================================
+
+% --- DEMO O CAPTURAS — 2:30 — guion en el Apéndice C (manual de
+% usuario). Si haces demo en vivo: datos precargados, sin depender de
+% la red del aula y con un VÍDEO de respaldo descargado (plan B) y
+% capturas (plan C). Esta diapositiva queda como ancla en pantalla
+% mientras la haces.
+\begin{frame}{Demostración}
+  \ph{Lista de los 2--3 pasos que vas a mostrar en la demo (o
+  secuencia de capturas si la demo es grabada). El tribunal debe poder
+  seguir el hilo aunque mire la diapositiva y no tu pantalla.}
+\end{frame}
+
+% =====================================================================
+\section{Resultados}
+% =====================================================================
+
+% --- RESULTADOS (I): MÉTRICAS — 1:30 — trae AQUÍ la tabla o figura
+% clave del Capítulo 8 (Resultados y discusión) de la memoria: es la
+% diapositiva que convierte «funciona» en «funciona y lo he medido».
+\begin{frame}{Resultados: métricas}
+  \begin{center}
+    \begin{tabular}{lcc}
+      \toprule
+      \textbf{Métrica} & \textbf{Objetivo} & \textbf{Obtenido} \\
+      \midrule
+      \ph{Métrica 1} & \ph{valor} & \ph{valor} \\
+      \ph{Métrica 2} & \ph{valor} & \ph{valor} \\
+      \ph{Métrica 3} & \ph{valor} & \ph{valor} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \ph{Una frase de lectura de la tabla: ¿qué demuestra?}
+\end{frame}
+
+% --- RESULTADOS (II): DISCUSIÓN — 1:00 — sale de las secciones de
+% comparación y discusión del Capítulo 8. Sé honesto con las
+% limitaciones: adelantarte a la crítica es dominio del tema.
+\begin{frame}{Resultados: discusión}
+  \ph{Cómo se compara tu solución con los trabajos relacionados del
+  Capítulo 2 (la tabla completa, en el backup) y 1--2 limitaciones
+  reconocidas con su mitigación.}
+\end{frame}
+
+% =====================================================================
+\section{Conclusiones y trabajo futuro}
+% =====================================================================
+
+% --- CONCLUSIONES — 1:30 — sale del Capítulo 9: tabla objetivo ↔ grado
+% de cumplimiento + limitaciones honestas. Es la respuesta anticipada a
+% la pregunta clásica del tribunal: «¿se cumplieron los objetivos?».
+\begin{frame}{Conclusiones}
+  \begin{center}
+    \begin{tabular}{lll}
+      \toprule
+      \textbf{Objetivo} & \textbf{Cumplimiento} & \textbf{Evidencia} \\
+      \midrule
+      \ph{O1} & \ph{Total / parcial} & \ph{dónde se demuestra} \\
+      \ph{O2} & \ph{\dots} & \ph{\dots} \\
+      \ph{O3} & \ph{\dots} & \ph{\dots} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \ph{Una frase de balance: qué aporta el trabajo y con qué
+  limitaciones honestas.}
+\end{frame}
+
+% --- TRABAJO FUTURO — 0:30 — sale del Capítulo 9: solo las 2--3
+% líneas más realistas, no toda la lista. Enlaza con tu frase de
+% cierre memorizada y pasa a la diapositiva de «Gracias» (estos 0:30
+% cubren ambas).
+\begin{frame}{Trabajo futuro}
+  \begin{itemize}
+    \item \ph{Línea de trabajo futuro 1 (la más realista del Capítulo 9)}
+    \item \ph{Línea de trabajo futuro 2}
+    \item \ph{Línea de trabajo futuro 3 (opcional)}
+  \end{itemize}
+\end{frame}
+
+% =====================================================================
+% GRACIAS / CONTACTO — dentro de los 0:30 de trabajo futuro + cierre.
+% Memoriza tu frase de cierre: una oración que resuma la aportación.
+% Esta diapositiva se queda en pantalla durante el turno de preguntas:
+% que contenga el título y tu contacto, no solo «Gracias».
+% =====================================================================
+\begin{frame}[plain]
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}Gracias}\\[2ex]
+    \ph{Título del trabajo}\\[1ex]
+    \ph{Nombre} \,\textperiodcentered\, \ph{correo de contacto}
+  \end{center}
+\end{frame}
+
+% =====================================================================
+% FRAMES DE RESPALDO — no se presentan: se saltan y solo se muestran si
+% el tribunal pregunta. Tenerlos preparados puntúa en «respuesta a
+% preguntas». No los numeres en el guion ni los menciones salvo que
+% hagan falta.
+% =====================================================================
+\appendix
+\backupbegin
+
+% Pregunta típica: «explícame mejor cómo se comunican los módulos».
+\begin{frame}{Backup: arquitectura detallada}
+  \ph{Versión detallada del diagrama de arquitectura (Capítulo 5):
+  componentes, interfaces y flujo de datos que no cabían en la
+  diapositiva principal.}
+\end{frame}
+
+% Pregunta típica: «¿cómo garantizas la calidad? ¿qué cobertura tienes?».
+\begin{frame}{Backup: cobertura de pruebas}
+  \ph{Resumen de la suite del Capítulo 7: pirámide de pruebas, número
+  de casos por nivel y porcentaje de cobertura.}
+\end{frame}
+
+% Pregunta típica: «¿en qué se diferencia tu trabajo de X?».
+\begin{frame}{Backup: comparativa con trabajos relacionados}
+  \ph{Tabla comparativa completa del Capítulo 2, con tu trabajo en la
+  última fila y el criterio diferencial destacado.}
+\end{frame}
+
+% Pregunta típica: «¿cuánto costaría esto en un entorno real?».
+\begin{frame}{Backup: presupuesto}
+  \ph{Resumen del presupuesto del Capítulo 3: horas, coste de personal
+  y coste total, con una línea sobre la desviación estimado vs.\ real.}
+\end{frame}
+
+% Pregunta típica: «¿por qué no usaste la tecnología Y?».
+\begin{frame}{Backup: decisiones descartadas}
+  \ph{Alternativas tecnológicas y de diseño que descartaste (Capítulos
+  5 y 6) y el motivo de cada descarte, en una tabla breve.}
+\end{frame}
+
+% Pregunta típica: «¿tienes más datos?» / «¿y la métrica Z?».
+\begin{frame}{Backup: resultados ampliados}
+  \ph{Tabla o figura adicional del Capítulo 8 con todas las métricas,
+  no solo las del cuerpo de la presentación: resultados por objetivo,
+  series completas o desgloses que respalden tus afirmaciones.}
+\end{frame}
+
+\backupend
+\end{document}

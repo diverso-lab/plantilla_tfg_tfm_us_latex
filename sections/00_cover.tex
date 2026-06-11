@@ -8,26 +8,30 @@
 
 {\large \textbf{ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA INFORMÁTICA}}\\[1.5cm]
 
-{\large \textbf{\ph{Titulación: Grado / Máster en \dots}}}\\[1cm]
+% Título, autor, tutores y fecha se rellenan en el bloque
+% «DATOS DEL TRABAJO» de main.tex (una sola vez para todo el documento).
+{\large \textbf{\memTitulacion}}\\[1cm]
 
-{\large Trabajo Fin de Grado}\\[1cm]
+{\large \memTipoTrabajo}\\[1cm]
 
-{\LARGE \textbf{\ph{Título del Trabajo Fin de Grado}}}\\[0.3cm]
+{\LARGE \textbf{\memTitulo}}\\[0.3cm]
 
+% El \mbox{} garantiza que la línea existe aunque la macro esté vacía
+% (modo final con datos sin rellenar): evita errores de compilación.
 \textbf{Autor/a:}\\
-\ph{Nombre y apellidos del autor/a} \\[0.2cm]
+\mbox{\memAutor} \\[0.2cm]
 
 \textbf{Tutor/es:}\\
-\ph{Nombre y apellidos del tutor/a 1}\\
-\ph{Nombre y apellidos del tutor/a 2 (opcional)}\\[0.2cm]
+\mbox{\memTutorUno}\\
+\mbox{\memTutorDos}\\[0.2cm]
 
 \textbf{Departamento:}\\
-Lenguaje y Sistemas Informáticos\\[0.2cm]
+\memDepartamento\\[0.2cm]
 
 \vfill
 
 \begin{flushright}
-  \textit{\ph{Ciudad, mes año}}
+  \textit{\memCiudad, \memFecha}
 \end{flushright}
 
 \end{titlepage}
