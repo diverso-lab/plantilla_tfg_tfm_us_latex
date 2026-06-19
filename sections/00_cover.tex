@@ -1,37 +1,52 @@
+% =====================================================================
+%  Portada institucional ETSII (Universidad de Sevilla).
+%  Reproduce la estructura de la portada oficial de TFG/TFM.
+%  Todos los datos (título, autor, titulación, tutores, departamento,
+%  convocatoria) se rellenan en el bloque «DATOS DEL TRABAJO» de main.tex.
+%  Se usa \par + \vspace (en lugar de \\) para que la portada compile
+%  sin errores aunque alguna macro quede vacía en modo final.
+% =====================================================================
 \begin{titlepage}
 \centering
 
-% Logo de la universidad (se conserva la imagen del proyecto original).
-% Sustituye el archivo figures/img/logo_uni.png por el logo institucional
-% que corresponda.
-\includegraphics[width=0.35\textwidth]{logo_uni.png}\\[1.5cm]
+% Logo de la universidad. Sustituye figures/img/logo_uni.png por el
+% logo institucional que corresponda (o por el banner combinado
+% Universidad de Sevilla + ETSII si dispones de él).
+\includegraphics[width=0.38\textwidth]{logo_uni.png}\par
+\vspace{0.8cm}
 
-{\large \textbf{ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA INFORMÁTICA}}\\[1.5cm]
+{\large\bfseries ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA INFORMÁTICA\par}
+\vspace{2.5cm}
 
-% Título, autor, tutores y fecha se rellenan en el bloque
-% «DATOS DEL TRABAJO» de main.tex (una sola vez para todo el documento).
-{\large \textbf{\memTitulacion}}\\[1cm]
+{\large \MakeUppercase{\memTipoTrabajo}\par}
+\vspace{1cm}
 
-{\large \memTipoTrabajo}\\[1cm]
+% Título del trabajo (puede ocupar varias líneas).
+{\LARGE\bfseries \memTitulo\par}
+\vspace{1.5cm}
 
-{\LARGE \textbf{\memTitulo}}\\[0.3cm]
+Realizado por\par
+\vspace{0.3em}
+{\large\bfseries \memAutor\par}
+\vspace{0.9cm}
 
-% El \mbox{} garantiza que la línea existe aunque la macro esté vacía
-% (modo final con datos sin rellenar): evita errores de compilación.
-\textbf{Autor/a:}\\
-\mbox{\memAutor} \\[0.2cm]
+{\bfseries Para la obtención del título de\par}
+\vspace{0.3em}
+\memTitulacion\par
+\vspace{0.9cm}
 
-\textbf{Tutor/es:}\\
-\mbox{\memTutorUno}\\
-\mbox{\memTutorDos}\\[0.2cm]
+{\bfseries Dirigido por\par}
+\vspace{0.3em}
+\memTutorUno\par
+\memTutorDos\par
+\vspace{0.9cm}
 
-\textbf{Departamento:}\\
-\memDepartamento\\[0.2cm]
+{\bfseries En el departamento de\par}
+\vspace{0.3em}
+\memDepartamento\par
 
 \vfill
 
-\begin{flushright}
-  \textit{\memCiudad, \memFecha}
-\end{flushright}
+{\large\bfseries \memConvocatoria\par}
 
 \end{titlepage}

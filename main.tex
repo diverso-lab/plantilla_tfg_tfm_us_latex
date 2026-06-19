@@ -95,12 +95,19 @@
 % declaración de autoría y en los metadatos del PDF.
 % =====================================================================
 \newcommand{\memTipoTrabajo}{Trabajo Fin de Grado} % o «Trabajo Fin de Máster»
-\newcommand{\memTitulacion}{\ph{Titulación: Grado / Máster en \dots}}
 \newcommand{\memTitulo}{\ph{Título del Trabajo Fin de Grado}}
-\newcommand{\memAutor}{\ph{Nombre y apellidos del autor/a}}
-\newcommand{\memTutorUno}{\ph{Nombre y apellidos del tutor/a 1}}
-\newcommand{\memTutorDos}{\ph{Nombre y apellidos del tutor/a 2 (opcional)}}
-\newcommand{\memDepartamento}{Lenguajes y Sistemas Informáticos}
+% Apellidos, Nombre (mismo formato que en la portada oficial de la ETSII).
+\newcommand{\memAutor}{\ph{Apellidos, Nombre del autor/a}}
+% Título completo de la titulación, p. ej. «Grado en Ingeniería
+% Informática -- Ingeniería del Software».
+\newcommand{\memTitulacion}{\ph{Grado/Máster en \dots}}
+\newcommand{\memTutorUno}{\ph{Apellidos, Nombre del tutor/a 1}}
+% Deja \memTutorDos vacío con \newcommand{\memTutorDos}{} si solo hay un tutor.
+\newcommand{\memTutorDos}{\ph{Apellidos, Nombre del tutor/a 2 (opcional)}}
+\newcommand{\memDepartamento}{\ph{Departamento (p. ej. Lenguajes y Sistemas Informáticos)}}
+% Convocatoria de defensa, p. ej. «Convocatoria de junio, curso 2025/26».
+\newcommand{\memConvocatoria}{\ph{Convocatoria de mes, curso 20XX/XX}}
+% Ciudad y fecha de firma (solo para la declaración de autoría).
 \newcommand{\memCiudad}{\ph{Ciudad}}
 \newcommand{\memFecha}{\ph{mes año}}
 
